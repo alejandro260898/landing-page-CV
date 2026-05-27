@@ -1,11 +1,5 @@
-import {
-  GraduationCap,
-  Mail,
-  MapPin,
-  Phone,
-  UserRound,
-} from "lucide-react";
-import { LinkedInIcon } from "@/components/cv/cv-icons";
+import { GraduationCap, Mail, MapPin, Phone, UserRound } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "@/components/cv/cv-icons";
 import { education } from "@/data/education";
 import { experience } from "@/data/experience";
 import { profile } from "@/data/profile";
@@ -56,7 +50,7 @@ function ContactRow({
 
 export function PrintCv() {
   return (
-    <div id="cv-print" className="print-only cv-document" aria-label="CV para impresión">
+    <div id="cv-print" className="print-only cv-document" aria-label="CV para impresion">
       <div className="cv-layout">
         <aside className="cv-sidebar">
           <div className="cv-logo-wrap">
@@ -76,39 +70,26 @@ export function PrintCv() {
                 Contacto
               </SidebarTitle>
               <ul className="cv-contact-list">
-                <ContactRow
-                  icon={<Phone size={ICON_SIZE} strokeWidth={2} />}
-                  label="Teléfono"
-                >
-                  <a href={`tel:${profile.phone.replace(/\D/g, "")}`}>
-                    {profile.phone}
-                  </a>
+                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label="Teléfono">
+                  <a href={`tel:${profile.phone.replace(/\D/g, "")}`}>{profile.phone}</a>
                 </ContactRow>
-                <ContactRow
-                  icon={<Mail size={ICON_SIZE} strokeWidth={2} />}
-                  label="Email"
-                >
+                <ContactRow icon={<Mail size={ICON_SIZE} strokeWidth={2} />} label="Email">
                   <a href={`mailto:${profile.email}`}>{profile.email}</a>
                 </ContactRow>
-                <ContactRow
-                  icon={<LinkedInIcon size={ICON_SIZE} />}
-                  label="LinkedIn"
-                >
+                <ContactRow icon={<LinkedInIcon size={ICON_SIZE} />} label="LinkedIn">
                   <a href={profile.linkedin}>{profile.linkedinDisplay}</a>
                 </ContactRow>
-                <ContactRow
-                  icon={<MapPin size={ICON_SIZE} strokeWidth={2} />}
-                  label="Ubicación"
-                >
+                <ContactRow icon={<GitHubIcon size={ICON_SIZE} />} label="GitHub">
+                  <a href={profile.github}>{profile.githubDisplay}</a>
+                </ContactRow>
+                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicación">
                   <span>{profile.locationShort}</span>
                 </ContactRow>
               </ul>
             </section>
 
             <section className="cv-sidebar-block">
-              <SidebarTitle
-                icon={<GraduationCap size={ICON_SIZE} strokeWidth={2} />}
-              >
+              <SidebarTitle icon={<GraduationCap size={ICON_SIZE} strokeWidth={2} />}>
                 Educación
               </SidebarTitle>
               {education.map((item) => (
@@ -134,7 +115,7 @@ export function PrintCv() {
           </section>
 
           <section className="cv-main-section">
-            <h2 className="cv-main-section-title">Experiencia laboral</h2>
+            <h2 className="cv-main-section-title">Experiencia</h2>
             {experience.map((item) => (
               <article key={item.role} className="cv-exp-entry">
                 <h3 className="cv-exp-role">{item.role}</h3>
@@ -161,18 +142,16 @@ export function PrintCv() {
             <div className="cv-projects-list">
               {cvProjects.map((project) => (
                 <article key={project.id} className="cv-project-item">
-                  <h3 className="cv-project-name">{project.name}</h3>
+                  <h3 className="cv-project-name">{project.name} <span className="cv-project-period">{project.period}</span></h3>
                   <p className="cv-project-desc">{project.description}</p>
-                  <p className="cv-project-stack">
-                    {formatStackLabel(project.stack)}
-                  </p>
+                  <p className="cv-project-stack">{formatStackLabel(project.stack)}</p>
                 </article>
               ))}
             </div>
           </section>
 
           <section className="cv-main-section cv-stack-section">
-            <h2 className="cv-main-section-title">Stack técnico</h2>
+            <h2 className="cv-main-section-title">Stack</h2>
             <div className="cv-stack-grid">
               {stackCategories.map((cat) => (
                 <div key={cat.id} className="cv-stack-card">

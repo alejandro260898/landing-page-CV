@@ -2,7 +2,7 @@ import type { EducationItem } from "@/types";
 
 export const education: EducationItem[] = [
   {
-    degree: "Lic. Ingeniería en computación",
+    degree: "Ingeniería en computación",
     institution: "CUCEI UDG",
     period: "2024",
   },

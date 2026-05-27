@@ -331,6 +331,14 @@
   color: var(--cv-main-text);
 }
 
+.cv-project-period {
+  margin: 0.8mm 0 0;
+  font-size: 7.85pt;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #6b7580;
+}
+
 .cv-project-desc {
   margin: 0.6mm 0 0;
   font-size: 8.5pt;

@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
-const PRINT_TITLE = profile.displayName;
+const PRINT_TITLE = profile.nameCV;
 
 type DownloadCvButtonProps = {
   variant?: "default" | "outline";
@@ -40,7 +40,7 @@ export function DownloadCvButton({
       onClick={handleDownload}
       title="Impresión: tamaño Carta, márgenes ninguno, sin encabezados/pies, con gráficos de fondo"
     >
-      <Download data-icon="inline-start" />
+    <Download data-icon="inline-start" />
       Descargar CV PDF
     </Button>
   );
