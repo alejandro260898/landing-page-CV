@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { DownloadCvButton } from "@/components/shared/download-cv-button";
 import { profile } from "@/data/profile";
 import { transitionMedium } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -90,6 +91,24 @@ export function HeroActions() {
           <span className="hidden sm:inline">GitHub</span>
           <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
+      </motion.div>
+
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 14 },
+          show: { opacity: 1, y: 0, transition: transitionMedium },
+        }}
+      >
+        <DownloadCvButton
+          iconOnlyOnMobile
+          className={cn(
+            btnBase,
+            "max-sm:gap-0 max-sm:px-0",
+            "border-0 bg-indigo-600 shadow-[0_2px_10px_-2px_rgba(99,102,241,0.35)]",
+            "hover:bg-indigo-700 hover:text-white sm:hover:shadow-[0_4px_14px_-4px_rgba(99,102,241,0.4)]",
+            "dark:bg-indigo-500 dark:hover:bg-indigo-600",
+          )}
+        />
       </motion.div>
     </motion.div>
   );

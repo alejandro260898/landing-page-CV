@@ -1,4 +1,4 @@
-import { GraduationCap, Mail, MapPin, Phone, UserRound } from "lucide-react";
+import { Globe, GraduationCap, Mail, MapPin, Phone, UserRound } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/cv/cv-icons";
 import { education } from "@/data/education";
 import { experience } from "@/data/experience";
@@ -81,6 +81,9 @@ export function PrintCv() {
                 </ContactRow>
                 <ContactRow icon={<GitHubIcon size={ICON_SIZE} />} label="GitHub">
                   <a href={profile.github}>{profile.githubDisplay}</a>
+                </ContactRow>
+                <ContactRow icon={<Globe size={ICON_SIZE} strokeWidth={2} />} label="Sitio web">
+                  <a href={profile.website}>{profile.websiteDisplay}</a>
                 </ContactRow>
                 <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicacion">
                   <span>{profile.locationShort}</span>

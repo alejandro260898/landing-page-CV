@@ -18,4 +18,6 @@ export const profile: Profile = {
   linkedinDisplay: "www.linkedin.com/in/francisco260898",
   github: "https://github.com/alejandro260898",
   githubDisplay: "github.com/alejandro260898",
+  website: "https://franciscogalvan.dev",
+  websiteDisplay: "franciscogalvan.dev",
 };

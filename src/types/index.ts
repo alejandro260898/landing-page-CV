@@ -52,4 +52,6 @@ export type Profile = {
   linkedinDisplay: string;
   github: string;
   githubDisplay: string;
+  website: string;
+  websiteDisplay: string;
 };
