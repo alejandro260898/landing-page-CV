@@ -14,7 +14,8 @@ export function HeroTechPills({ className }: HeroTechPillsProps) {
   return (
     <motion.ul
       className={cn(
-        "mt-7 flex max-w-2xl flex-wrap items-center justify-center gap-2",
+        "mt-5 flex flex-col items-center gap-2",
+        "sm:mt-7 sm:max-w-2xl sm:flex-row sm:flex-wrap sm:justify-center sm:gap-2",
         className,
       )}
       initial="hidden"
@@ -39,20 +40,23 @@ export function HeroTechPills({ className }: HeroTechPillsProps) {
           }}
         >
           <span
+            title={tech}
             className={cn(
-              "group inline-flex cursor-default items-center gap-1.5 rounded-full",
-              "border border-border/60 bg-background/70 px-3 py-1.5 backdrop-blur-sm",
-              "text-[11.5px] font-medium tracking-wide text-muted-foreground",
+              "group inline-flex size-10 cursor-default items-center justify-center rounded-xl",
+              "border border-border/60 bg-background/70 backdrop-blur-sm",
               "transition-[color,background-color,border-color,box-shadow,transform] duration-300",
-              "hover:-translate-y-px hover:border-border hover:bg-background/90 hover:text-foreground",
+              "hover:-translate-y-px hover:border-border hover:bg-background/90",
               "hover:shadow-[0_6px_20px_-8px_rgba(0,0,0,0.14)] dark:hover:shadow-[0_6px_20px_-8px_rgba(0,0,0,0.5)]",
+              "sm:size-auto sm:gap-1.5 sm:rounded-full sm:px-3 sm:py-1.5",
+              "sm:text-[11.5px] sm:font-medium sm:tracking-wide sm:text-muted-foreground",
+              "sm:hover:text-foreground",
             )}
           >
             <TechIcon
               tech={tech}
-              className="size-3.5 transition-transform duration-300 group-hover:scale-110"
+              className="size-5 transition-transform duration-300 group-hover:scale-110 sm:size-3.5"
             />
-            {tech}
+            <span className="hidden sm:inline">{tech}</span>
           </span>
         </motion.li>
       ))}

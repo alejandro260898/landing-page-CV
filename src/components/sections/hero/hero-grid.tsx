@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-const EDGE_PAD_X = 28;
-const EDGE_PAD_Y = 24;
+const EDGE_PAD_X = 12;
+const EDGE_PAD_Y = 20;
 const CELL = 72; // px entre nodos
 const INFLUENCE_RADIUS = 0.2;
 const MAX_SHIFT = 14;

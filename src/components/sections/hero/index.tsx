@@ -17,18 +17,18 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[100dvh] w-full scroll-mt-16 flex-col border-t-0 pt-16"
+      className="relative flex w-full scroll-mt-16 flex-col border-t-0 pt-16 min-h-0 sm:min-h-[100dvh]"
     >
       <HeroBackground />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-6 lg:px-8">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-10 text-center sm:py-12">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-6 lg:px-8 sm:min-h-[calc(100dvh-4rem)]">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-6 text-center sm:py-12">
           {/* Logo + glow */}
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, scale: 0.88 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={reduceMotion ? { duration: 0 } : transitionSlow}
-            className="relative mb-8 md:mb-10"
+            className="relative mb-5 sm:mb-8 md:mb-10"
           >
             <div
               className="pointer-events-none absolute left-1/2 top-1/2 -z-10 size-52 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-3xl"
@@ -65,7 +65,7 @@ export function Hero() {
             transition={
               reduceMotion ? { duration: 0 } : { ...transitionMedium, delay: 0.18 }
             }
-            className="mt-4 flex items-center gap-3 sm:mt-5"
+            className="mt-3 flex items-center gap-2.5 sm:mt-5 sm:gap-3"
           >
             <span
               className="h-px w-10 bg-gradient-to-r from-transparent via-foreground/25 to-foreground/40 sm:w-16"
@@ -88,7 +88,7 @@ export function Hero() {
                 ? { duration: 0 }
                 : { duration: 0.65, ease: easePremium, delay: 0.26 }
             }
-            className="mt-5 max-w-[46ch] text-[0.9375rem] leading-[1.72] font-normal text-muted-foreground sm:mt-6 sm:text-base md:text-[1.05rem]"
+            className="mt-3 max-w-[46ch] text-[0.875rem] leading-[1.65] font-normal text-muted-foreground sm:mt-6 sm:text-base sm:leading-[1.72] md:text-[1.05rem]"
           >
             {profile.description}
           </motion.p>
@@ -103,21 +103,22 @@ export function Hero() {
                 ? { duration: 0 }
                 : { duration: 0.55, ease: easePremium, delay: 0.42 }
             }
-            className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:mt-7"
+            className="mt-4 flex flex-nowrap items-center justify-center gap-2 sm:mt-7"
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-              <MapPin className="size-3.5 shrink-0 text-foreground/45" />
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
+              <MapPin className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
               {profile.location}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-              <Wifi className="size-3.5 shrink-0 text-foreground/45" />
-              {profile.availability}
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
+              <Wifi className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
+              <span className="sm:hidden">Híbrido/remoto</span>
+              <span className="hidden sm:inline">{profile.availability}</span>
             </span>
           </motion.div>
 
           <HeroActions />
 
-          <HeroScrollIndicator className="mt-6 sm:mt-7" />
+          <HeroScrollIndicator className="mt-4 hidden sm:flex sm:mt-7" />
         </div>
       </div>
     </section>

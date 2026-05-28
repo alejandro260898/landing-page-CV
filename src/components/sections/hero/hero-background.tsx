@@ -28,7 +28,7 @@ export function HeroBackground() {
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 -z-10 w-full overflow-hidden"
+      className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 h-full w-screen max-w-none -translate-x-1/2 overflow-hidden"
       aria-hidden
     >
       <div className="hero-gradient-base absolute inset-0" />
