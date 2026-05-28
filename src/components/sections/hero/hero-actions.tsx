@@ -91,13 +91,14 @@ export function HeroActions() {
       </div>
 
       {/* Solo móvil: en desktop ya está en el appbar */}
-      <motion.div className="w-full max-w-[17rem] sm:hidden" variants={itemVariants}>
+      <motion.div className="flex justify-center sm:hidden" variants={itemVariants}>
         <DownloadCvButton
+          variant="outline"
           className={cn(
-            "h-11 w-full gap-2 rounded-xl border-0 px-5 text-sm font-semibold tracking-[-0.01em] text-white",
-            "bg-indigo-600 shadow-[0_2px_10px_-2px_rgba(99,102,241,0.35)]",
-            "hover:bg-indigo-700 hover:text-white",
-            "dark:bg-indigo-500 dark:hover:bg-indigo-600",
+            "h-11 w-auto shrink-0 gap-2 rounded-xl px-4 text-sm font-semibold tracking-[-0.01em]",
+            "border-border/60 bg-background/60 text-foreground shadow-none backdrop-blur-sm",
+            "hover:bg-muted/50 hover:text-foreground",
+            "dark:border-border/60 dark:bg-background/60 dark:hover:bg-muted/40",
           )}
         />
       </motion.div>
