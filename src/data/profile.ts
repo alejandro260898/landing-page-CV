@@ -3,12 +3,12 @@ import type { Profile } from "@/types";
 export const profile: Profile = {
   name: "Francisco Galván",
   displayName: "Francisco Galván",
-  cvHeadline: "Web & Mobile Engineer",
-  tagline: "Web & Mobile Engineer",
+  cvHeadline: "Software Developer",
+  tagline: "Software Developer",
   description:
-    "Developer Full Stack especializado en aplicaciones escalables, APIs y experiencias móviles modernas.",
+    "Desarrollo aplicaciones web y móviles enfocadas en rendimiento, experiencia de usuario y operación real.",
   summary:
-    "Desarrollador Full Stack con 2+ años en EurekaSigma construyendo productos reales: apps móviles con Flutter, sistemas industriales, APIs biométricas y hardware BLE. Busco un equipo donde aportar desde el primer día.",
+    "Actualmente trabajo desarrollando soluciones empresariales utilizando Flutter, React, Next.js y servicios cloud, participando en productos utilizados en operación diaria.",
   location: "Guadalajara, México",
   locationShort: "Guadalajara, Jal. México",
   availability: "Disponible híbrido/remoto",

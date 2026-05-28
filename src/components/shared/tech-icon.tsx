@@ -238,9 +238,9 @@ const iconMap: Record<string, React.ComponentType<Props>> = {
   Neon: NeonIcon,
   Python: PythonIcon,
   Cursor: CursorIcon,
-  Debugging: DebugIcon,
-  "Generación UI": UIGenIcon,
-  Documentación: DocIcon,
+  "Debugging asistido": DebugIcon,
+  "Prototipado UI": UIGenIcon,
+  "Documentación técnica": DocIcon,
   AI: AIIcon,
 };
 

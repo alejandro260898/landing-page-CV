@@ -41,14 +41,14 @@ const contactLinks = [
   },
   {
     icon: LinkedInIcon,
-    label: profile.linkedinDisplay.replace(/^www\./, ""),
+    label: "LinkedIn",
     href: profile.linkedin,
     external: true,
     isSvg: true,
   },
   {
     icon: GitHubIcon,
-    label: profile.githubDisplay,
+    label: "GitHub",
     href: profile.github,
     external: true,
     isSvg: true,

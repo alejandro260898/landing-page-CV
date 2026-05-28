@@ -19,16 +19,19 @@ export function SectionReveal({
 }: SectionRevealProps) {
   const reduceMotion = useReducedMotion();
   const isMobile = useIsMobile();
+  const hidden = isMobile ? { opacity: 0 } : { opacity: 0, y: 18 };
+  const visible = isMobile ? { opacity: 1 } : { opacity: 1, y: 0 };
 
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : hidden}
+      whileInView={visible}
       viewport={
         isMobile
-          ? { once: true, amount: 0, margin: "0px 0px 25% 0px" }
+          ? { once: true, amount: 0.06, margin: "0px 0px -6% 0px" }
           : { once: true, amount: 0.12, margin: "0px 0px -8% 0px" }
       }
+      style={isMobile ? { overflowAnchor: "none" } : undefined}
       transition={
         reduceMotion
           ? { duration: 0 }

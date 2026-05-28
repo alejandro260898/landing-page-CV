@@ -12,7 +12,7 @@ export const siteMetadata: Metadata = {
   },
   description: profile.description,
   keywords: [
-    "Full Stack Developer",
+    "Software Developer",
     "React",
     "Next.js",
     "Flutter",

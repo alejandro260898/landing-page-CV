@@ -23,7 +23,7 @@ export const projects: Project[] = [
     id: "laurier",
     name: "Laurier",
     description:
-      "Ecommerce y mayoreo con módulos empresariales para gestión de productos, clientes y pedidos.",
+      "E-commerce y mayoreo con módulos empresariales para gestión de productos, clientes y pedidos.",
     stack: ["Next.js", "TypeScript", "APIs REST"],
     variant: "dashboard",
     period: "Enero 2026 — Mayo 2026",

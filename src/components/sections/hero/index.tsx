@@ -17,11 +17,11 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex w-full scroll-mt-16 flex-col border-t-0 pt-16 min-h-[calc(100dvh-4rem)] sm:min-h-[100dvh]"
+      className="relative flex w-full scroll-mt-16 flex-col border-t-0 pt-16 min-h-[calc(100svh-4rem)] sm:min-h-[100dvh]"
     >
       <HeroBackground />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-6 lg:px-8 min-h-[calc(100dvh-4rem)] sm:min-h-[calc(100dvh-4rem)]">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-6 lg:px-8 min-h-[calc(100svh-4rem)] sm:min-h-[calc(100dvh-4rem)]">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-6 text-center sm:py-12">
           {/* Logo + glow */}
           <motion.div
@@ -88,7 +88,7 @@ export function Hero() {
                 ? { duration: 0 }
                 : { duration: 0.65, ease: easePremium, delay: 0.26 }
             }
-            className="mt-3 max-w-[46ch] text-[0.875rem] leading-[1.65] font-normal text-muted-foreground sm:mt-6 sm:text-base sm:leading-[1.72] md:text-[1.05rem]"
+            className="mt-3 max-w-[46ch] text-pretty text-[0.875rem] leading-[1.7] font-normal text-muted-foreground sm:mt-6 sm:text-base sm:leading-[1.72] md:text-[1.05rem]"
           >
             {profile.description}
           </motion.p>
@@ -105,11 +105,11 @@ export function Hero() {
             }
             className="mt-4 flex flex-nowrap items-center justify-center gap-2 sm:mt-7"
           >
-            <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
+            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-2.5 py-1.5 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
               <MapPin className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
               {profile.location}
             </span>
-            <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-border/60 bg-background/60 px-2.5 py-1 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
+            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-2.5 py-1.5 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
               <Wifi className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
               <span className="sm:hidden">Híbrido/remoto</span>
               <span className="hidden sm:inline">{profile.availability}</span>

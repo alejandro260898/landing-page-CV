@@ -34,7 +34,8 @@ const categoryMeta: Record<string, CategoryMeta> = {
   },
   ai: {
     icon: Sparkles,
-    description: "Potencio mi flujo de trabajo con inteligencia artificial.",
+    description:
+      "Utilizo herramientas asistidas por IA para optimizar desarrollo y documentación técnica.",
   },
 };
 
@@ -53,7 +54,7 @@ export function StackSection() {
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
           Mi stack tecnológico
         </h2>
-        <p className="mt-3 max-w-3xl text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
+        <p className="mt-3 max-w-3xl text-pretty text-[0.9375rem] leading-[1.75] text-muted-foreground md:text-base md:leading-[1.72]">
           Conjunto de herramientas y tecnologías que utilizo para desarrollar
           productos escalables, modernos y eficientes.
         </p>

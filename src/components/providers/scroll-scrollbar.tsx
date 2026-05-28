@@ -1,18 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { cn } from "@/lib/utils";
 
 const IDLE_MS = 1100;
 const FADE_MS = 550;
 
 export function ScrollScrollbar() {
+  const isMobile = useIsMobile();
   const [visible, setVisible] = useState(false);
   const [thumb, setThumb] = useState({ top: 0, height: 48 });
   const idleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const raf = useRef<number>(0);
 
   useEffect(() => {
+    if (isMobile) return;
+
     const root = document.documentElement;
     root.classList.add("custom-scrollbar-active");
 
@@ -54,7 +58,9 @@ export function ScrollScrollbar() {
       clearTimeout(idleTimer.current);
       cancelAnimationFrame(raf.current);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <div

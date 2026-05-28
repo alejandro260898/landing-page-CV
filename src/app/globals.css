@@ -127,9 +127,18 @@
     @apply bg-background text-[15px] leading-relaxed text-foreground antialiased;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply font-sans;
     scrollbar-width: none;
     overflow-y: auto;
+    scroll-behavior: auto;
+    overflow-anchor: auto;
+  }
+
+  /* scroll-smooth en táctil provoca “rebote” al detener el scroll */
+  @media (min-width: 640px) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   html.custom-scrollbar-active {
