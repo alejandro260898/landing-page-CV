@@ -37,15 +37,15 @@ export function ProjectsSection() {
           <FadeIn key={project.id} delay={index * 0.05}>
             <article
               className={cn(
-                "group flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card",
+                "group grid overflow-hidden rounded-2xl border border-border/70 bg-card",
+                "grid-cols-1 lg:grid-cols-[14rem_minmax(0,1fr)_18rem] lg:items-stretch",
                 "shadow-[0_2px_12px_-6px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow] duration-300",
                 "hover:border-indigo-200/50 hover:shadow-[0_6px_24px_-8px_rgba(99,102,241,0.12)]",
                 "dark:shadow-[0_2px_12px_-6px_rgba(0,0,0,0.35)] dark:hover:border-indigo-500/25",
-                "lg:flex-row lg:items-stretch",
               )}
             >
               {/* Identity */}
-              <div className="flex items-center gap-3 border-b border-border/60 p-5 lg:min-w-[13.5rem] lg:shrink-0 lg:border-b-0 lg:border-r lg:p-6">
+              <div className="flex items-center gap-3 border-b border-border/60 p-5 lg:border-b-0 lg:border-r lg:p-6">
                 <span
                   className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-500/10"
                   aria-hidden
@@ -76,20 +76,20 @@ export function ProjectsSection() {
               </div>
 
               {/* Description */}
-              <div className="flex flex-1 items-center border-b border-border/60 px-5 py-4 lg:border-b-0 lg:border-r lg:px-6 lg:py-5">
+              <div className="flex min-w-0 items-center border-b border-border/60 px-5 py-4 lg:border-b-0 lg:border-r lg:px-6 lg:py-5">
                 <p className="text-[0.8125rem] leading-[1.65] text-muted-foreground sm:text-sm">
                   {project.description}
                 </p>
               </div>
 
               {/* Stack pills */}
-              <div className="flex flex-wrap items-center gap-2 p-5 lg:max-w-[17rem] lg:shrink-0 lg:p-6">
+              <div className="flex w-full flex-wrap content-center items-center gap-2 p-5 lg:w-[18rem] lg:justify-start lg:p-6">
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
                     className={cn(
-                      "inline-flex items-center rounded-full border border-border/70 bg-muted/30 px-2.5 py-1",
-                      "text-[11px] font-medium text-muted-foreground",
+                      "inline-flex shrink-0 items-center rounded-full border border-border/70 bg-muted/30 px-2.5 py-1",
+                      "text-[11px] font-medium leading-none whitespace-nowrap text-muted-foreground",
                       "transition-colors duration-200",
                       "group-hover:border-indigo-200/40 group-hover:bg-indigo-50/50 group-hover:text-foreground",
                       "dark:group-hover:border-indigo-500/20 dark:group-hover:bg-indigo-500/[0.06]",
@@ -103,17 +103,6 @@ export function ProjectsSection() {
           </FadeIn>
         ))}
       </div>
-
-      {/* Footer note */}
-      <FadeIn delay={0.2}>
-        <p className="mt-8 flex items-center justify-center gap-2 text-center text-xs text-muted-foreground/70 md:mt-10">
-          <span
-            className="size-1.5 shrink-0 rounded-full bg-indigo-500"
-            aria-hidden
-          />
-          Más colaboraciones próximamente
-        </p>
-      </FadeIn>
       </SectionReveal>
     </Section>
   );

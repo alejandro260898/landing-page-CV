@@ -99,7 +99,7 @@ export function Footer() {
   return (
     <footer className="no-print border-t border-border/60 bg-background">
       <div className="mx-auto max-w-6xl xl:max-w-7xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)_minmax(0,1.15fr)_minmax(0,0.65fr)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1.35fr)_minmax(0,1.05fr)_minmax(12.5rem,0.95fr)]">
           {/* Identity */}
           <FooterColumn withDivider className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-start gap-3">
@@ -163,19 +163,23 @@ export function Footer() {
           </FooterColumn>
 
           {/* Explore */}
-          <FooterColumn title="Explorar" withDivider={false}>
-            <ul className="space-y-2.5">
+          <FooterColumn
+            title="Explorar"
+            withDivider={false}
+            className="min-w-0 lg:px-6 xl:px-8"
+          >
+            <ul className="w-full space-y-2.5">
               {navItems.map((item) => (
-                <li key={item.href}>
+                <li key={item.href} className="w-full">
                   <Link
                     href={item.href}
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href);
                     }}
-                    className="group flex items-center justify-between gap-3 text-[0.8125rem] text-muted-foreground transition-colors hover:text-foreground"
+                    className="group flex w-full items-center justify-between gap-4 text-[0.8125rem] text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    <span>{item.label}</span>
+                    <span className="min-w-0 pr-1">{item.label}</span>
                     <ChevronRight className="size-3.5 shrink-0 text-muted-foreground/50 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground/70" />
                   </Link>
                 </li>

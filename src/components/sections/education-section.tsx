@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays, GraduationCap, Info, Plus } from "lucide-react";
+import { CalendarDays, GraduationCap, Info } from "lucide-react";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Section } from "@/components/shared/section";
 import { SectionReveal } from "@/components/shared/section-reveal";
@@ -81,20 +81,6 @@ export function EducationSection() {
                 </div>
               </article>
             ))}
-
-            {/* Placeholder — próximamente */}
-            <div
-              className={cn(
-                "flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-border/70 px-5 py-8 text-center sm:flex-row sm:py-10",
-              )}
-            >
-              <span className="flex size-9 items-center justify-center rounded-full border border-border/60 bg-muted/20">
-                <Plus className="size-4 text-muted-foreground/60" strokeWidth={2} />
-              </span>
-              <p className="text-sm text-muted-foreground/70">
-                Más estudios o certificaciones próximamente
-              </p>
-            </div>
           </div>
         </div>
       </FadeIn>

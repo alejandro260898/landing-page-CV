@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useIsClient } from "@/hooks/use-is-client";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -20,11 +20,7 @@ const sizeMap = {
 
 export function Logo({ className, size = "md", priority = false }: LogoProps) {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useIsClient();
 
   const isDark = mounted && resolvedTheme === "dark";
   const logoSrc = isDark ? "/logo_dark.png" : "/logo.png";

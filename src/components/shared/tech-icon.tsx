@@ -47,10 +47,20 @@ const TailwindIcon = ({ className }: Props) => (
 );
 
 const FlutterIcon = ({ className }: Props) => (
-  <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
-    <path d="M3.8 12L10.5 5.3H18.5L11.8 12L18.5 18.7H10.5L3.8 12Z" fill="#54C5F8" />
-    <path d="M10.5 12L18.5 18.7H14.8L7.1 12L10.5 12Z" fill="#01579B" opacity="0.85" />
-    <path d="M10.5 12L14.8 18.7L11.2 18.7L7.5 15L10.5 12Z" fill="#29B6F6" />
+  <svg
+    viewBox="0 0 24 24"
+    preserveAspectRatio="xMidYMid meet"
+    className={cn("aspect-square shrink-0", className)}
+    aria-hidden
+  >
+    {/* Ala superior — barra de la F */}
+    <path
+      fill="#54C5F8"
+      d="M3.8 11.4L10.5 5.3H18.5L11.5 11.4L18.5 18.5H10.8L3.8 11.4Z"
+    />
+    {/* Sombra inferior (separada del trazo superior para leer la F) */}
+    <path fill="#01579B" d="M11.4 12.6L18.5 18.7H14.8L7.2 12.6Z" />
+    <path fill="#29B6F6" d="M11.4 12.6L14.8 18.7H11.2L7.6 15.1Z" />
   </svg>
 );
 
@@ -76,7 +86,13 @@ const BLEIcon = ({ className }: Props) => (
 const NodeIcon = ({ className }: Props) => (
   <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
     <polygon points="12,2 21.5,7.2 21.5,16.8 12,22 2.5,16.8 2.5,7.2" fill="#339933" />
-    <path d="M8 8.5v7l1.4-.8V12l2.2 2.8 2.2-2.8v2.7l1.4.8v-7l-1.4.8-2.2 2.8-2.2-2.8z" fill="white" />
+    <path
+      d="M9 8.5v7M9 8.5l5.5 7M14.5 8.5v7"
+      stroke="white"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -97,9 +113,28 @@ const RestApiIcon = ({ className }: Props) => (
 );
 
 const DockerIcon = ({ className }: Props) => (
-  <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
-    <path d="M13.5 5.5h2v2h-2zM11 5.5h2v2h-2zM8.5 5.5h2v2h-2zM8.5 8h2v2h-2zM11 8h2v2h-2zM13.5 8h2v2h-2zM16 8h2v2h-2z" fill="#2496ED" />
-    <path d="M21.6 10.2c-.5-.3-1.6-.5-2.5-.3-.1-.9-.7-1.7-1.5-2.1l-.5-.3-.3.5c-.3.6-.4 1.4-.3 2 .1.3.2.7.4.9-.5.3-1.1.4-1.6.4H2.4c-.2 1 .1 2.2.7 3.1.7 1 1.7 1.5 3 1.8.6.1 1.1.2 1.7.2 1 0 2-.2 2.8-.7.6-.3 1.2-.9 1.6-1.5h1.4c.2 0 .5-.2.7-.4l.3-.5.2.5c.1.2.4.4.7.4h1.1c.2 0 .4 0 .6-.1.5-.2.9-.6 1.1-1.2.2-.5.2-1 .1-1.4.3-.2.7-.3.9-.4z" fill="#2496ED" />
+  <svg
+    viewBox="0 0 24 24"
+    preserveAspectRatio="xMidYMid meet"
+    className={cn("aspect-square shrink-0", className)}
+    aria-hidden
+  >
+    <g fill="#2496ED">
+      {/* 8 contenedores: 4 + 3 + 1 (logo oficial) */}
+      <rect x="3.25" y="2.25" width="2.3" height="2.3" rx="0.45" />
+      <rect x="6" y="2.25" width="2.3" height="2.3" rx="0.45" />
+      <rect x="8.75" y="2.25" width="2.3" height="2.3" rx="0.45" />
+      <rect x="11.5" y="2.25" width="2.3" height="2.3" rx="0.45" />
+      <rect x="4.625" y="4.85" width="2.3" height="2.3" rx="0.45" />
+      <rect x="7.375" y="4.85" width="2.3" height="2.3" rx="0.45" />
+      <rect x="10.125" y="4.85" width="2.3" height="2.3" rx="0.45" />
+      <rect x="10.125" y="7.45" width="2.3" height="2.3" rx="0.45" />
+      {/* Ballena */}
+      <path d="M1.75 13.1c.3-2.4 2.2-4.2 4.55-4.45.55-1.9 2.3-3.1 4.25-3.25h7.7c3.4 0 6.15 2.75 6.15 6.15s-2.75 6.15-6.15 6.15H8.1c-3.55 0-6.25-2.75-6.25-6.1v-.5z" />
+      {/* Aleta cola */}
+      <path d="M20.2 16.9 22.7 18.2 21.6 20.1 18.9 18.6c.85-.55 1.3-1.15 1.3-1.7z" />
+      <path d="M20.45 14.2 23.15 13.5 22.7 16 20.15 15.1c.35-.95.85-1.5 1.3-1.9z" />
+    </g>
   </svg>
 );
 
@@ -125,9 +160,31 @@ const VercelIcon = ({ className }: Props) => (
 );
 
 const NeonIcon = ({ className }: Props) => (
-  <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
-    <rect x="2" y="6" width="20" height="12" rx="3" fill="#00E699" opacity="0.15" stroke="#00E699" strokeWidth="1.5" />
-    <path d="M6 12h4l2-3 2 6 2-3h2" stroke="#00E699" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    viewBox="0 0 24 24"
+    preserveAspectRatio="xMidYMid meet"
+    className={cn("aspect-square shrink-0", className)}
+    aria-hidden
+  >
+    <rect
+      x="5"
+      y="3.5"
+      width="14"
+      height="17"
+      rx="3.5"
+      fill="#00E699"
+      fillOpacity="0.18"
+      stroke="#00E699"
+      strokeWidth="1.3"
+    />
+    <path
+      d="M8.5 17V7l3.5 5.5V7l4 10"
+      fill="none"
+      stroke="#00E699"
+      strokeWidth="1.65"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -181,9 +238,9 @@ const iconMap: Record<string, React.ComponentType<Props>> = {
   Neon: NeonIcon,
   Python: PythonIcon,
   Cursor: CursorIcon,
-  "Debugging asistido": DebugIcon,
+  Debugging: DebugIcon,
   "Generación UI": UIGenIcon,
-  "Documentación técnica": DocIcon,
+  Documentación: DocIcon,
   AI: AIIcon,
 };
 
@@ -192,5 +249,5 @@ type TechIconProps = { tech: string; className?: string };
 export function TechIcon({ tech, className }: TechIconProps) {
   const Icon = iconMap[tech];
   if (!Icon) return null;
-  return <Icon className={cn("size-4", className)} />;
+  return <Icon className={cn("aspect-square size-4 shrink-0", className)} />;
 }

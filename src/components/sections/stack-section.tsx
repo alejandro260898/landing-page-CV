@@ -38,15 +38,6 @@ const categoryMeta: Record<string, CategoryMeta> = {
   },
 };
 
-/** Posición en grid de 6 columnas (3 cards arriba, 2 centradas abajo). */
-const cardPlacement: Record<string, string> = {
-  frontend: "lg:col-span-2",
-  mobile: "lg:col-span-2",
-  backend: "lg:col-span-2",
-  infra: "lg:col-span-2 lg:col-start-2",
-  ai: "lg:col-span-2 lg:col-start-4",
-};
-
 export function StackSection() {
   return (
     <Section
@@ -68,7 +59,7 @@ export function StackSection() {
         <span className="mt-5 block h-px w-10 bg-indigo-400/60" aria-hidden />
       </FadeIn>
 
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-6">
+      <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
         {stackCategories.map((category, index) => {
           const meta = categoryMeta[category.id];
           const Icon = meta?.icon ?? Monitor;
@@ -76,14 +67,17 @@ export function StackSection() {
             category.technologies.length <= 3 ? "grid-cols-1" : "grid-cols-2";
 
           return (
-            <FadeIn key={category.id} delay={index * 0.05}>
+            <FadeIn
+              key={category.id}
+              delay={index * 0.05}
+              className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] lg:max-w-[22rem]"
+            >
               <article
                 className={cn(
                   "group flex h-full flex-col rounded-2xl border border-border/70 bg-card p-5 sm:p-6",
                   "transition-[border-color,box-shadow] duration-300",
                   "hover:border-indigo-200/60 hover:shadow-[0_6px_24px_-8px_rgba(99,102,241,0.14)]",
                   "dark:hover:border-indigo-500/25 dark:hover:shadow-[0_6px_24px_-8px_rgba(99,102,241,0.2)]",
-                  cardPlacement[category.id],
                 )}
               >
                 <span className="mb-4 inline-flex size-11 items-center justify-center rounded-xl bg-indigo-50 text-indigo-500 dark:bg-indigo-500/10 dark:text-indigo-400">
@@ -113,8 +107,8 @@ export function StackSection() {
                           "dark:group-hover:border-indigo-500/20 dark:group-hover:bg-indigo-500/[0.06]",
                         )}
                       >
-                        <TechIcon tech={tech} className="size-3.5 shrink-0" />
-                        <span className="truncate">{tech}</span>
+                        <TechIcon tech={tech} className="size-3.5" />
+                        <span>{tech}</span>
                       </span>
                     </li>
                   ))}

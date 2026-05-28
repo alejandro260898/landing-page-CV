@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, CalendarDays, MapPin, Plus } from "lucide-react";
+import { Briefcase, CalendarDays, MapPin } from "lucide-react";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Section } from "@/components/shared/section";
 import { SectionReveal } from "@/components/shared/section-reveal";
@@ -36,29 +36,19 @@ export function ExperienceSection() {
             className="relative flex w-10 shrink-0 flex-col items-center sm:w-12"
             aria-hidden
           >
-            <div className="z-10 flex size-10 items-center justify-center rounded-full border border-border/70 bg-card shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] sm:size-11">
+            <div className="z-10 flex size-10 shrink-0 items-center justify-center rounded-full border border-border/70 bg-card shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] sm:size-11 aspect-square">
               <Briefcase
                 className="size-[18px] text-indigo-500 sm:size-5"
                 strokeWidth={1.75}
               />
             </div>
 
-            <div className="relative my-2 flex min-h-[calc(100%-7rem)] w-full flex-1 flex-col items-center sm:my-3">
+            <div className="relative my-2 flex min-h-[calc(100%-5.5rem)] w-full flex-1 flex-col items-center sm:my-3">
               <div className="absolute inset-y-0 left-1/2 w-0 -translate-x-1/2 border-l-2 border-dashed border-indigo-300/70 dark:border-indigo-500/35" />
-              <div className="relative z-10 my-auto size-2.5 rounded-full bg-indigo-500 ring-4 ring-background" />
+              <div className="relative z-10 my-auto size-2.5 shrink-0 rounded-full bg-indigo-500 ring-4 ring-background" />
             </div>
 
-            <div className="z-10 flex flex-col items-center gap-2 pb-1">
-              <div className="flex size-8 items-center justify-center rounded-full border border-border/70 bg-card shadow-sm sm:size-9">
-                <Plus
-                  className="size-3.5 text-indigo-400 sm:size-4"
-                  strokeWidth={2}
-                />
-              </div>
-              <p className="max-w-[4.5rem] text-center text-[10px] leading-snug text-muted-foreground/70 sm:max-w-none sm:text-left sm:text-xs">
-                Más experiencias próximamente
-              </p>
-            </div>
+            <div className="z-10 flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-border/80 bg-background" />
           </aside>
 
           {/* Experience cards */}

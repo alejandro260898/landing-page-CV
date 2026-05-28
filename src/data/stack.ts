@@ -26,9 +26,9 @@ export const stackCategories: StackCategory[] = [
     title: "IA aplicada",
     technologies: [
       "Cursor",
-      "Debugging asistido",
+      "Debugging",
       "Generación UI",
-      "Documentación técnica",
+      "Documentación",
     ],
   },
 ];

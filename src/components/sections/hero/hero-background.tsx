@@ -21,9 +21,9 @@ export function HeroBackground() {
     return () => window.removeEventListener("mousemove", onMove);
   }, [mouseX, mouseY, reduceMotion]);
 
-  const purpleStyle = reduceMotion ? undefined : { x: springX, y: springY };
-  const pinkStyle = reduceMotion ? undefined : { x: springXSlow, y: springY };
-  const blueStyle = reduceMotion ? undefined : { x: springX };
+  const blueLeftStyle = reduceMotion ? undefined : { x: springX, y: springY };
+  const blueRightStyle = reduceMotion ? undefined : { x: springXSlow, y: springY };
+  const blueBottomStyle = reduceMotion ? undefined : { x: springX };
 
   return (
     <div
@@ -32,21 +32,21 @@ export function HeroBackground() {
     >
       <div className="hero-gradient-base absolute inset-0" />
 
-      {/* Purple orb — upper left */}
+      {/* Deep blue orb — upper left */}
       <motion.div
         className="absolute -left-[25%] -top-[30%] h-[90%] w-[80%] rounded-full blur-[130px]"
         style={{
-          background: "radial-gradient(circle, rgba(139,92,246,0.28) 0%, transparent 70%)",
-          ...purpleStyle,
+          background: "radial-gradient(circle, rgba(37,99,235,0.32) 0%, transparent 70%)",
+          ...blueLeftStyle,
         }}
       />
 
-      {/* Pink orb — upper right */}
+      {/* Bright blue-white orb — upper right (focal point del mockup) */}
       <motion.div
-        className="absolute -right-[20%] -top-[20%] h-[70%] w-[65%] rounded-full blur-[110px]"
+        className="absolute -right-[15%] -top-[25%] h-[80%] w-[70%] rounded-full blur-[100px]"
         style={{
-          background: "radial-gradient(circle, rgba(236,72,153,0.18) 0%, transparent 70%)",
-          ...pinkStyle,
+          background: "radial-gradient(circle, rgba(147,197,253,0.28) 0%, rgba(59,130,246,0.22) 40%, transparent 70%)",
+          ...blueRightStyle,
         }}
       />
 
@@ -54,8 +54,8 @@ export function HeroBackground() {
       <motion.div
         className="absolute -bottom-[15%] left-[20%] h-[60%] w-[60%] rounded-full blur-[120px]"
         style={{
-          background: "radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%)",
-          ...blueStyle,
+          background: "radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%)",
+          ...blueBottomStyle,
         }}
       />
 
