@@ -56,29 +56,31 @@ export function EducationSection() {
               <article
                 key={`${item.degree}-${index}`}
                 className={cn(
-                  "flex flex-col gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.06)] sm:flex-row sm:items-center sm:gap-5 sm:p-6",
+                  "flex items-start gap-4 rounded-2xl border border-border/70 bg-card p-5 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.06)] sm:items-center sm:gap-5 sm:p-6",
                   "dark:shadow-[0_2px_12px_-6px_rgba(0,0,0,0.35)]",
                 )}
               >
-                <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-500 dark:bg-indigo-500/10 dark:text-indigo-400">
-                  <GraduationCap className="size-5" strokeWidth={1.75} />
+                {/* Icon — circular on mobile */}
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-500 dark:bg-indigo-500/10 dark:text-indigo-400 sm:size-13 sm:rounded-2xl">
+                  <GraduationCap className="size-5 sm:size-6" strokeWidth={1.75} />
                 </span>
 
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-base font-bold tracking-[-0.02em] text-foreground sm:text-lg">
+                  <h3 className="text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-foreground sm:text-lg">
                     {item.degree}
                   </h3>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
+                  <p className="mt-0.5 text-[0.8125rem] font-semibold text-indigo-500 dark:text-indigo-400">
                     {item.institution}
                   </p>
-                  <span className="mt-2.5 inline-flex rounded-full bg-indigo-50 px-2.5 py-0.5 text-[11px] font-semibold text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
-                    Formación profesional
-                  </span>
-                </div>
-
-                <div className="flex shrink-0 items-center gap-1.5 self-start text-muted-foreground sm:self-center">
-                  <CalendarDays className="size-3.5 shrink-0 text-foreground/45" />
-                  <span className="text-sm font-medium">{item.period}</span>
+                  <div className="mt-2.5 flex flex-wrap items-center gap-2">
+                    <span className="inline-flex rounded-full bg-indigo-50 px-2.5 py-0.5 text-[11px] font-semibold text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
+                      Formación profesional
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                      <CalendarDays className="size-3 shrink-0 text-foreground/40" />
+                      {item.period}
+                    </span>
+                  </div>
                 </div>
               </article>
             ))}

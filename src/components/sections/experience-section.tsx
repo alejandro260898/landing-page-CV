@@ -53,7 +53,7 @@ export function ExperienceSection() {
           </aside>
 
           {/* Experience cards */}
-          <div className="min-w-0 flex-1 space-y-6">
+          <div className="min-w-0 flex-1 space-y-4">
             {experience.map((item, index) => (
               <article
                 key={`${item.role}-${index}`}
@@ -62,34 +62,30 @@ export function ExperienceSection() {
                   "dark:shadow-[0_2px_16px_-6px_rgba(0,0,0,0.35)]",
                 )}
               >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                {/* Title row — tenure badge always inline */}
+                <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="text-base font-bold tracking-[-0.02em] text-foreground sm:text-lg">
+                    <h3 className="text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-foreground sm:text-lg">
                       {item.role}
                     </h3>
                     {item.company ? (
-                      <p className="mt-0.5 text-sm font-medium text-indigo-500 dark:text-indigo-400">
+                      <p className="mt-0.5 text-[0.8125rem] font-semibold text-indigo-500 dark:text-indigo-400">
                         {item.company}
                       </p>
                     ) : null}
                   </div>
                   {item.tenure ? (
-                    <span className="inline-flex w-fit shrink-0 rounded-full bg-indigo-50 px-3 py-1 text-[11px] font-semibold text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
+                    <span className="mt-0.5 inline-flex shrink-0 rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
                       {item.tenure}
                     </span>
                   ) : null}
                 </div>
 
+                {/* Meta badges */}
                 <div className="mt-3 flex flex-wrap items-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground">
                     <CalendarDays className="size-3 shrink-0 text-foreground/45" />
                     {item.period}
-                  </span>
-                  <span
-                    className="hidden text-muted-foreground/40 sm:inline"
-                    aria-hidden
-                  >
-                    ·
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground">
                     <MapPin className="size-3 shrink-0 text-foreground/45" />
@@ -97,19 +93,19 @@ export function ExperienceSection() {
                   </span>
                 </div>
 
-                <span className="my-5 block h-px w-full bg-border/70" aria-hidden />
+                <span className="my-4 block h-px w-full bg-border/60" aria-hidden />
 
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {item.highlights.map((highlight) => (
                     <li
                       key={highlight}
-                      className="flex gap-3 text-[0.8125rem] leading-[1.65] text-muted-foreground sm:text-sm"
+                      className="flex gap-2.5 text-[0.8125rem] leading-[1.65] text-muted-foreground"
                     >
                       <span
-                        className="mt-[0.45rem] size-1.5 shrink-0 rounded-[2px] bg-indigo-500"
+                        className="mt-[0.5rem] size-1.5 shrink-0 rounded-full bg-indigo-500"
                         aria-hidden
                       />
-                      <span>{highlight}</span>
+                      <span className="text-pretty">{highlight}</span>
                     </li>
                   ))}
                 </ul>

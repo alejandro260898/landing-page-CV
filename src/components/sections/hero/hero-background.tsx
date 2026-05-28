@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
 import { useEffect } from "react";
+import { HeroGrid } from "./hero-grid";
 
 export function HeroBackground() {
   const reduceMotion = useReducedMotion();
@@ -27,10 +28,11 @@ export function HeroBackground() {
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      className="pointer-events-none absolute inset-0 -z-10 w-full overflow-hidden"
       aria-hidden
     >
       <div className="hero-gradient-base absolute inset-0" />
+      {!reduceMotion && <HeroGrid />}
 
       {/* Deep blue orb — upper left */}
       <motion.div
