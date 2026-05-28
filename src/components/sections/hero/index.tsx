@@ -17,11 +17,11 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex w-full scroll-mt-16 flex-col border-t-0 pt-16 min-h-0 sm:min-h-[100dvh]"
+      className="relative flex w-full scroll-mt-16 flex-col border-t-0 pt-16 min-h-[calc(100dvh-4rem)] sm:min-h-[100dvh]"
     >
       <HeroBackground />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-6 lg:px-8 sm:min-h-[calc(100dvh-4rem)]">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-6 lg:px-8 min-h-[calc(100dvh-4rem)] sm:min-h-[calc(100dvh-4rem)]">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center py-6 text-center sm:py-12">
           {/* Logo + glow */}
           <motion.div
