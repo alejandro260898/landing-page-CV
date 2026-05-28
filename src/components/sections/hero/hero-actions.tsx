@@ -95,10 +95,11 @@ export function HeroActions() {
         <DownloadCvButton
           variant="outline"
           className={cn(
-            "h-11 w-auto shrink-0 gap-2 rounded-xl px-4 text-sm font-semibold tracking-[-0.01em]",
-            "border-border/60 bg-background/60 text-foreground shadow-none backdrop-blur-sm",
-            "hover:bg-muted/50 hover:text-foreground",
-            "dark:border-border/60 dark:bg-background/60 dark:hover:bg-muted/40",
+            "h-11 w-auto shrink-0 gap-2 rounded-xl border border-border/80 px-4 text-sm font-semibold tracking-[-0.01em]",
+            "bg-card text-foreground shadow-[0_2px_14px_-4px_rgba(0,0,0,0.1)]",
+            "hover:bg-muted",
+            "dark:border-white/15 dark:bg-muted dark:shadow-[0_4px_20px_-6px_rgba(0,0,0,0.55)]",
+            "dark:hover:bg-muted/80",
           )}
         />
       </motion.div>
