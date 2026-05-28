@@ -9,9 +9,9 @@ import { ProjectMockup } from "./project-mockup";
 
 export function ProjectsSection() {
   return (
-    <Section id="proyectos">
+    <Section id="colaboraciones">
       <SectionHeader
-        label="Proyectos"
+        label="Colaboraciones"
         title="Plataformas y productos"
         description="Experiencia participando en el desarrollo de productos digitales reales — no como proyectos personales, sino en contextos empresariales de producción."
       />

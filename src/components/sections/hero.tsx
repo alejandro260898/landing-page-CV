@@ -16,7 +16,7 @@ export function Hero() {
       className="relative border-t-0 py-0"
       containerClassName="relative"
     >
-      <div className="relative flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-24 md:py-32">
+      <div className="relative flex min-h-[calc(100dvh-4rem)] flex-col justify-center py-24 pt-28 md:py-32 md:pt-36">
         <GridBackground />
 
         <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center text-center">

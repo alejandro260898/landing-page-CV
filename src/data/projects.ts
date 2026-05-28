@@ -8,16 +8,16 @@ export const projects: Project[] = [
       "Sistema empresarial industrial para trazabilidad, QA y producción en planta.",
     stack: ["Next.js"],
     variant: "enterprise",
-    period: "Feb 2026 — May 2026",
+    period: "Febrero 2026 — Mayo 2026",
   },
   {
     id: "faceticket",
     name: "FaceTicket",
     description:
-      "Desarrollé un sistema móvil de acceso para eventos utilizando reconocimiento facial y validación QR, optimizando tiempos de ingreso y validación de asistentes.",
+      "Sistema móvil para acceso a eventos mediante reconocimiento facial y validación QR.",
     stack: ["React", "Flutter", "APIs REST", "FastAPI"],
     variant: "mobile",
-    period: "Nov 2024 — Abr 2026",
+    period: "Noviembre 2024 — Abril 2026",
   },
   {
     id: "laurier",
@@ -26,25 +26,25 @@ export const projects: Project[] = [
       "Ecommerce y mayoreo con módulos empresariales para gestión de productos, clientes y pedidos.",
     stack: ["Next.js", "TypeScript", "APIs REST"],
     variant: "dashboard",
-    period: "Ene 2026 — May 2026",
+    period: "Enero 2026 — Mayo 2026",
   },
   {
     id: "recommend",
     name: "Recommend",
     description:
-      "Networking local con promociones y geolocalización para descubrimiento de negocios, ayudando a los usuarios a encontrar negocios cercanos y promociones relevantes.",
+      "Networking local con promociones y geolocalización para descubrimiento de negocios.",
     stack: ["Next.js", "Capacitor", "APIs REST"],
     variant: "network",
-    period: "Jun 2025 — May 2026",
+    period: "Junio 2025 — Mayo 2026",
   },
   {
     id: "ballskore",
     name: "Ballskore",
     description:
-      "Sistema de monitoreo deportivo en tiempo real mediante dispositivos BLE.",
+      "Control de partidos en tiempo real mediante relojes BLE y hardware deportivo conectado.",
     stack: ["Flutter", "BLE"],
     variant: "hardware",
-    period: "Ene 2025 — Ago 2025",
+    period: "Enero 2025 — Agosto 2025",
   },
 ];
 

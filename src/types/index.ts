@@ -35,7 +35,6 @@ export type EducationItem = {
 
 export type Profile = {
   name: string;
-  nameCV: string;
   displayName: string;
   /** Subtítulo en CV impreso (evita repetir el rol de experiencia). */
   cvHeadline: string;

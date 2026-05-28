@@ -70,7 +70,7 @@ export function PrintCv() {
                 Contacto
               </SidebarTitle>
               <ul className="cv-contact-list">
-                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label="Teléfono">
+                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label="Telefono">
                   <a href={`tel:${profile.phone.replace(/\D/g, "")}`}>{profile.phone}</a>
                 </ContactRow>
                 <ContactRow icon={<Mail size={ICON_SIZE} strokeWidth={2} />} label="Email">
@@ -82,7 +82,7 @@ export function PrintCv() {
                 <ContactRow icon={<GitHubIcon size={ICON_SIZE} />} label="GitHub">
                   <a href={profile.github}>{profile.githubDisplay}</a>
                 </ContactRow>
-                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicación">
+                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicacion">
                   <span>{profile.locationShort}</span>
                 </ContactRow>
               </ul>
@@ -90,7 +90,7 @@ export function PrintCv() {
 
             <section className="cv-sidebar-block">
               <SidebarTitle icon={<GraduationCap size={ICON_SIZE} strokeWidth={2} />}>
-                Educación
+                Educacion
               </SidebarTitle>
               {education.map((item) => (
                 <article key={item.degree} className="cv-edu-item">
@@ -115,7 +115,7 @@ export function PrintCv() {
           </section>
 
           <section className="cv-main-section">
-            <h2 className="cv-main-section-title">Experiencia</h2>
+            <h2 className="cv-main-section-title">Experiencia laboral</h2>
             {experience.map((item) => (
               <article key={item.role} className="cv-exp-entry">
                 <h3 className="cv-exp-role">{item.role}</h3>
@@ -123,7 +123,7 @@ export function PrintCv() {
                   {item.company ? (
                     <>
                       <strong>{item.company}</strong>
-                      <span className="cv-exp-sep"> · </span>
+                      <span className="cv-exp-sep"> - </span>
                     </>
                   ) : null}
                   <span>{item.period}</span>
@@ -151,7 +151,7 @@ export function PrintCv() {
           </section>
 
           <section className="cv-main-section cv-stack-section">
-            <h2 className="cv-main-section-title">Stack</h2>
+            <h2 className="cv-main-section-title">Stack tecnico</h2>
             <div className="cv-stack-grid">
               {stackCategories.map((cat) => (
                 <div key={cat.id} className="cv-stack-card">

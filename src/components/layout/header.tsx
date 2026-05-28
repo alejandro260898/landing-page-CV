@@ -30,20 +30,20 @@ export function Header() {
   return (
     <header
       className={cn(
-        "no-print fixed inset-x-0 top-0 z-50 transition-[background,border-color] duration-300",
+        "no-print fixed inset-x-0 top-0 z-50 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] transition-[background,border-color,box-shadow] duration-300 dark:shadow-[0_4px_16px_-4px_rgba(0,0,0,0.45)]",
         scrolled
           ? "border-b border-border/70 bg-background/90 backdrop-blur-md"
-          : "border-b border-transparent bg-background/40 backdrop-blur-sm",
+          : "border-b border-border/40 bg-background/80 backdrop-blur-sm",
       )}
     >
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-3 px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-3 px-5 sm:px-6 lg:px-8">
         <Link
           href="#inicio"
           className="flex items-center gap-2.5"
           onClick={() => setOpen(false)}
           aria-label="Ir al inicio"
         >
-          <Logo size="sm" />
+          <Logo size="header" />
         </Link>
 
         <nav
