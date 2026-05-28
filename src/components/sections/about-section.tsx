@@ -54,10 +54,11 @@ export function AboutSection() {
     <Section
       id="sobre-mi"
       className="scroll-mt-16 pt-8 pb-14 md:pt-10 md:pb-16"
+      containerClassName="max-w-7xl"
     >
       <SectionReveal>
       {/* ── Two-column layout ── */}
-      <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
         {/* Left column */}
         <FadeIn className="flex flex-col justify-center">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-indigo-500 dark:text-indigo-400">
@@ -77,7 +78,7 @@ export function AboutSection() {
 
           <span className="mt-6 block h-px w-10 bg-border" aria-hidden />
 
-          <p className="mt-6 text-[0.9375rem] leading-[1.72] text-muted-foreground md:text-base">
+          <p className="mt-6 max-w-2xl text-pretty text-[0.9375rem] leading-[1.72] text-muted-foreground md:max-w-none md:text-base">
             {profile.summary}
           </p>
         </FadeIn>
@@ -100,7 +101,7 @@ export function AboutSection() {
               <p className="mb-1.5 text-sm font-semibold tracking-[-0.01em] text-foreground">
                 {title}
               </p>
-              <p className="text-[0.8125rem] leading-[1.65] text-muted-foreground">
+              <p className="text-pretty text-[0.8125rem] leading-[1.7] text-muted-foreground">
                 {description}
               </p>
             </div>

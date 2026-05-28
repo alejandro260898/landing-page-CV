@@ -12,6 +12,7 @@ export function EducationSection() {
     <Section
       id="educacion"
       className="scroll-mt-16 pt-8 pb-14 md:pt-10 md:pb-16"
+      containerClassName="max-w-7xl"
     >
       <SectionReveal>
       {/* Header */}
@@ -22,7 +23,7 @@ export function EducationSection() {
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
           Formación académica
         </h2>
-        <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
+        <p className="mt-3 max-w-4xl text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
           Mi formación académica y aprendizaje continuo que respaldan mi
           desarrollo profesional.
         </p>

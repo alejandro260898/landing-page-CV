@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Manrope } from "next/font/google";
+import { ScrollScrollbar } from "@/components/providers/scroll-scrollbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteMetadata } from "@/lib/site-metadata";
@@ -31,7 +32,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
         <JsonLd />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <ScrollScrollbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import {
+  Activity,
+  ArrowUpRight,
+  Building2,
+  MapPinned,
+  ScanFace,
+  ShoppingBag,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Section } from "@/components/shared/section";
@@ -8,11 +16,43 @@ import { SectionReveal } from "@/components/shared/section-reveal";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
+const projectIcons: Record<
+  string,
+  { Icon: LucideIcon; iconClass: string; bgClass: string }
+> = {
+  sirane: {
+    Icon: Building2,
+    iconClass: "text-slate-600 dark:text-slate-300",
+    bgClass: "bg-slate-100 dark:bg-slate-500/15",
+  },
+  faceticket: {
+    Icon: ScanFace,
+    iconClass: "text-violet-600 dark:text-violet-400",
+    bgClass: "bg-violet-50 dark:bg-violet-500/15",
+  },
+  laurier: {
+    Icon: ShoppingBag,
+    iconClass: "text-amber-600 dark:text-amber-400",
+    bgClass: "bg-amber-50 dark:bg-amber-500/15",
+  },
+  recommend: {
+    Icon: MapPinned,
+    iconClass: "text-emerald-600 dark:text-emerald-400",
+    bgClass: "bg-emerald-50 dark:bg-emerald-500/15",
+  },
+  ballskore: {
+    Icon: Activity,
+    iconClass: "text-sky-600 dark:text-sky-400",
+    bgClass: "bg-sky-50 dark:bg-sky-500/15",
+  },
+};
+
 export function ProjectsSection() {
   return (
     <Section
       id="colaboraciones"
       className="scroll-mt-16 pt-8 pb-14 md:pt-10 md:pb-16"
+      containerClassName="max-w-7xl"
     >
       <SectionReveal>
       {/* Header */}
@@ -23,7 +63,7 @@ export function ProjectsSection() {
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
           Plataformas y productos
         </h2>
-        <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
+        <p className="mt-3 max-w-4xl text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
           He participado en el desarrollo de productos digitales reales en
           entornos empresariales de producción, colaborando en equipos
           multidisciplinarios.
@@ -33,12 +73,16 @@ export function ProjectsSection() {
 
       {/* Project list */}
       <div className="mt-8 space-y-3 md:mt-10 md:space-y-4">
-        {projects.map((project, index) => (
+        {projects.map((project, index) => {
+          const { Icon, iconClass, bgClass } =
+            projectIcons[project.id] ?? projectIcons.sirane;
+
+          return (
           <FadeIn key={project.id} delay={index * 0.05}>
             <article
               className={cn(
                 "group grid overflow-hidden rounded-2xl border border-border/70 bg-card",
-                "grid-cols-1 lg:grid-cols-[14rem_minmax(0,1fr)_18rem] lg:items-stretch",
+                "grid-cols-1 lg:grid-cols-[11.5rem_minmax(22rem,2.5fr)_15rem] lg:items-stretch",
                 "shadow-[0_2px_12px_-6px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow] duration-300",
                 "hover:border-indigo-200/50 hover:shadow-[0_6px_24px_-8px_rgba(99,102,241,0.12)]",
                 "dark:shadow-[0_2px_12px_-6px_rgba(0,0,0,0.35)] dark:hover:border-indigo-500/25",
@@ -47,16 +91,16 @@ export function ProjectsSection() {
               {/* Identity */}
               <div className="flex items-center gap-3 border-b border-border/60 p-5 lg:border-b-0 lg:border-r lg:p-6">
                 <span
-                  className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-500/10"
+                  className={cn(
+                    "flex size-10 shrink-0 items-center justify-center rounded-xl",
+                    bgClass,
+                  )}
                   aria-hidden
                 >
-                  <span className="size-2 rounded-full bg-indigo-500" />
+                  <Icon className={cn("size-5", iconClass)} strokeWidth={1.75} />
                 </span>
                 <div className="min-w-0">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    Participación
-                  </p>
-                  <div className="mt-0.5 flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5">
                     <h3 className="text-base font-bold tracking-[-0.02em] text-foreground">
                       {project.name}
                     </h3>
@@ -76,14 +120,14 @@ export function ProjectsSection() {
               </div>
 
               {/* Description */}
-              <div className="flex min-w-0 items-center border-b border-border/60 px-5 py-4 lg:border-b-0 lg:border-r lg:px-6 lg:py-5">
-                <p className="text-[0.8125rem] leading-[1.65] text-muted-foreground sm:text-sm">
+              <div className="flex min-w-0 items-center border-b border-border/60 px-5 py-4 lg:min-w-[22rem] lg:border-b-0 lg:border-r lg:px-6 lg:py-5">
+                <p className="text-pretty text-[0.8125rem] leading-[1.7] text-muted-foreground sm:text-sm">
                   {project.description}
                 </p>
               </div>
 
               {/* Stack pills */}
-              <div className="flex w-full flex-wrap content-center items-center gap-2 p-5 lg:w-[18rem] lg:justify-start lg:p-6">
+              <div className="flex w-full flex-wrap content-center items-center gap-2 p-5 lg:w-[15rem] lg:shrink-0 lg:justify-start lg:p-6">
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
@@ -101,7 +145,8 @@ export function ProjectsSection() {
               </div>
             </article>
           </FadeIn>
-        ))}
+          );
+        })}
       </div>
       </SectionReveal>
     </Section>

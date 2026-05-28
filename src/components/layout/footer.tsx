@@ -15,9 +15,6 @@ import { profile } from "@/data/profile";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
 
-const FOOTER_DESCRIPTION =
-  "Desarrollo productos digitales escalables con enfoque en rendimiento, experiencia de usuario y calidad de código.";
-
 function formatPhoneDisplay(phone: string) {
   const match = phone.match(/\(\+\d+\)\s*(\d{3})(\d{3})(\d{4})/);
   if (!match) return phone;
@@ -113,9 +110,6 @@ export function Footer() {
                 </p>
               </div>
             </div>
-            <p className="mt-4 text-[0.8125rem] leading-[1.65] text-muted-foreground">
-              {FOOTER_DESCRIPTION}
-            </p>
           </FooterColumn>
 
           {/* Contact */}

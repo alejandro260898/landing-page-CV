@@ -43,6 +43,7 @@ export function StackSection() {
     <Section
       id="stack"
       className="scroll-mt-16 pt-8 pb-14 md:pt-10 md:pb-16"
+      containerClassName="max-w-7xl"
     >
       <SectionReveal>
       <FadeIn>
@@ -52,7 +53,7 @@ export function StackSection() {
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
           Mi stack tecnológico
         </h2>
-        <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
+        <p className="mt-3 max-w-3xl text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
           Conjunto de herramientas y tecnologías que utilizo para desarrollar
           productos escalables, modernos y eficientes.
         </p>
@@ -70,7 +71,7 @@ export function StackSection() {
             <FadeIn
               key={category.id}
               delay={index * 0.05}
-              className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.67rem)] lg:max-w-[22rem]"
+              className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] lg:max-w-none"
             >
               <article
                 className={cn(
@@ -88,7 +89,7 @@ export function StackSection() {
                   {category.title}
                 </p>
                 {meta?.description && (
-                  <p className="mt-1 text-[0.8125rem] leading-[1.6] text-muted-foreground">
+                  <p className="mt-1 text-pretty text-[0.8125rem] leading-[1.65] text-muted-foreground">
                     {meta.description}
                   </p>
                 )}
