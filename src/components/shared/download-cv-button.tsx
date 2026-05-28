@@ -11,15 +11,12 @@ type DownloadCvButtonProps = {
   variant?: "default" | "outline";
   size?: "default" | "sm" | "lg";
   className?: string;
-  /** En móvil solo icono; texto visible desde `sm`. */
-  iconOnlyOnMobile?: boolean;
 };
 
 export function DownloadCvButton({
   variant = "default",
   size = "default",
   className,
-  iconOnlyOnMobile = false,
 }: DownloadCvButtonProps) {
   const handleDownload = () => {
     const previousTitle = document.title;
@@ -42,14 +39,10 @@ export function DownloadCvButton({
       size={size}
       className={cn("cursor-pointer", className)}
       onClick={handleDownload}
-      aria-label={iconOnlyOnMobile ? "Descargar CV" : undefined}
       title="Impresión: tamaño Carta, márgenes ninguno, sin encabezados/pies, con gráficos de fondo"
     >
-      <FileText
-        {...(iconOnlyOnMobile ? {} : { "data-icon": "inline-start" })}
-        className={iconOnlyOnMobile ? "size-5 sm:size-4" : undefined}
-      />
-      <span className={iconOnlyOnMobile ? "hidden sm:inline" : undefined}>Descargar CV</span>
+      <FileText data-icon="inline-start" />
+      Descargar CV
     </Button>
   );
 }

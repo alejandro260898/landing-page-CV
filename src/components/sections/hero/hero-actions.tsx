@@ -31,9 +31,14 @@ const btnBase = cn(
 export function HeroActions() {
   const reduceMotion = useReducedMotion();
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: transitionMedium },
+  };
+
   return (
     <motion.div
-      className="mt-5 flex flex-row items-center justify-center gap-3 sm:mt-8"
+      className="mt-5 flex w-full flex-col items-center gap-3 sm:mt-8"
       initial="hidden"
       animate="show"
       variants={{
@@ -46,66 +51,52 @@ export function HeroActions() {
         },
       }}
     >
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 14 },
-          show: { opacity: 1, y: 0, transition: transitionMedium },
-        }}
-      >
-        <Link
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className={cn(
-            btnBase,
-            "bg-[#0A66C2] shadow-[0_2px_10px_-2px_rgba(10,102,194,0.35)]",
-            "hover:bg-[#0958a8] sm:hover:shadow-[0_4px_14px_-4px_rgba(10,102,194,0.4)]",
-          )}
-        >
-          <LinkedInSvg className="size-5 sm:size-4" />
-          <span className="hidden sm:inline">LinkedIn</span>
-          <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
-      </motion.div>
+      <div className="flex flex-row items-center justify-center gap-3">
+        <motion.div variants={itemVariants}>
+          <Link
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className={cn(
+              btnBase,
+              "bg-[#0A66C2] shadow-[0_2px_10px_-2px_rgba(10,102,194,0.35)]",
+              "hover:bg-[#0958a8] sm:hover:shadow-[0_4px_14px_-4px_rgba(10,102,194,0.4)]",
+            )}
+          >
+            <LinkedInSvg className="size-5 sm:size-4" />
+            <span className="hidden sm:inline">LinkedIn</span>
+            <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </motion.div>
 
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 14 },
-          show: { opacity: 1, y: 0, transition: transitionMedium },
-        }}
-      >
-        <Link
-          href={profile.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className={cn(
-            btnBase,
-            "bg-[#1a1a2e] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.22)]",
-            "hover:bg-[#25253c] sm:hover:shadow-[0_4px_14px_-4px_rgba(0,0,0,0.28)]",
-            "dark:bg-[#161625] dark:hover:bg-[#1e1e30]",
-          )}
-        >
-          <GitHubSvg className="size-5 sm:size-4" />
-          <span className="hidden sm:inline">GitHub</span>
-          <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
-      </motion.div>
+        <motion.div variants={itemVariants}>
+          <Link
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className={cn(
+              btnBase,
+              "bg-[#1a1a2e] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.22)]",
+              "hover:bg-[#25253c] sm:hover:shadow-[0_4px_14px_-4px_rgba(0,0,0,0.28)]",
+              "dark:bg-[#161625] dark:hover:bg-[#1e1e30]",
+            )}
+          >
+            <GitHubSvg className="size-5 sm:size-4" />
+            <span className="hidden sm:inline">GitHub</span>
+            <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </motion.div>
+      </div>
 
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 14 },
-          show: { opacity: 1, y: 0, transition: transitionMedium },
-        }}
-      >
+      {/* Solo móvil: en desktop ya está en el appbar */}
+      <motion.div className="w-full max-w-[17rem] sm:hidden" variants={itemVariants}>
         <DownloadCvButton
-          iconOnlyOnMobile
           className={cn(
-            btnBase,
-            "max-sm:gap-0 max-sm:px-0",
-            "border-0 bg-indigo-600 shadow-[0_2px_10px_-2px_rgba(99,102,241,0.35)]",
-            "hover:bg-indigo-700 hover:text-white sm:hover:shadow-[0_4px_14px_-4px_rgba(99,102,241,0.4)]",
+            "h-11 w-full gap-2 rounded-xl border-0 px-5 text-sm font-semibold tracking-[-0.01em] text-white",
+            "bg-indigo-600 shadow-[0_2px_10px_-2px_rgba(99,102,241,0.35)]",
+            "hover:bg-indigo-700 hover:text-white",
             "dark:bg-indigo-500 dark:hover:bg-indigo-600",
           )}
         />
