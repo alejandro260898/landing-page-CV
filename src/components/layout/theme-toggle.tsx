@@ -16,7 +16,7 @@ export function ThemeToggle() {
       <Button
         variant="outline"
         size="icon"
-        className="size-9"
+        className="size-9 shrink-0 rounded-full"
         aria-label="Cambiar tema"
         disabled
       />
@@ -29,7 +29,7 @@ export function ThemeToggle() {
     <Button
       variant="outline"
       size="icon"
-      className="size-9"
+      className="size-9 shrink-0 rounded-full"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Activar modo claro" : "Activar modo oscuro"}
     >

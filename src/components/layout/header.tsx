@@ -6,12 +6,15 @@ import { useEffect, useState } from "react";
 import { DownloadCvButton } from "@/components/shared/download-cv-button";
 import { Logo } from "@/components/shared/logo";
 import { navItems } from "@/data/navigation";
+import { useActiveSection } from "@/hooks/use-active-section";
+import { scrollToSection } from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const activeSection = useActiveSection();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -40,7 +43,11 @@ export function Header() {
         <Link
           href="#inicio"
           className="flex items-center gap-2.5"
-          onClick={() => setOpen(false)}
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("#inicio");
+            setOpen(false);
+          }}
           aria-label="Ir al inicio"
         >
           <Logo size="header" />
@@ -50,25 +57,46 @@ export function Header() {
           className="hidden items-center gap-0.5 lg:flex"
           aria-label="Principal"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-2.5 py-1.5 text-[13px] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
+                className={cn(
+                  "relative cursor-pointer rounded-md px-2.5 py-1.5 text-[13px] transition-colors",
+                  isActive
+                    ? "font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {item.label}
+                {isActive && (
+                  <span
+                    className="absolute -bottom-1.5 left-1/2 size-1.5 -translate-x-1/2 rounded-full bg-foreground"
+                    aria-hidden
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           <div className="hidden md:block">
-            <DownloadCvButton size="sm" />
+            <DownloadCvButton
+              size="sm"
+              className="h-9 cursor-pointer gap-2 rounded-full py-0 pr-4 pl-3.5 text-[13px] has-data-[icon=inline-start]:pl-3.5 [&_svg]:size-3.5"
+            />
           </div>
           <button
             type="button"
-            className="inline-flex size-8 items-center justify-center rounded-md border border-border lg:hidden"
+            className="inline-flex size-9 items-center justify-center rounded-full border border-border lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -81,18 +109,33 @@ export function Header() {
       {open ? (
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="flex max-h-[70dvh] flex-col gap-0.5 overflow-y-auto px-4 py-3" aria-label="Móvil">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative cursor-pointer rounded-full px-3 py-2.5 text-sm transition-colors",
+                    isActive
+                      ? "bg-muted font-medium text-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                  )}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                    setOpen(false);
+                  }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <div className="pt-2 pb-1">
-              <DownloadCvButton className="w-full" size="sm" />
+              <DownloadCvButton
+                className="h-9 w-full cursor-pointer gap-2 rounded-full py-0 pr-4 pl-3.5 text-[13px] has-data-[icon=inline-start]:pl-3.5"
+                size="sm"
+              />
             </div>
           </nav>
         </div>

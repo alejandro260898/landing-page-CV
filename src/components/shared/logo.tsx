@@ -15,7 +15,7 @@ const sizeMap = {
   sm: { container: "size-9", image: 36 },
   header: { container: "size-11", image: 44 },
   md: { container: "size-10", image: 40 },
-  lg: { container: "size-16", image: 64 },
+  lg: { container: "size-[4.5rem]", image: 72 },
 };
 
 export function Logo({ className, size = "md", priority = false }: LogoProps) {

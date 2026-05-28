@@ -3,6 +3,7 @@
 import { FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
+import { cn } from "@/lib/utils";
 
 const PRINT_TITLE = profile.displayName;
 
@@ -36,7 +37,7 @@ export function DownloadCvButton({
       type="button"
       variant={variant}
       size={size}
-      className={className}
+      className={cn("cursor-pointer", className)}
       onClick={handleDownload}
       title="Impresión: tamaño Carta, márgenes ninguno, sin encabezados/pies, con gráficos de fondo"
     >

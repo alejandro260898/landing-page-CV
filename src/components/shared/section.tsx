@@ -17,7 +17,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "scroll-mt-20 border-t border-border/50 py-16 md:scroll-mt-24 md:py-24",
+        "scroll-mt-16 border-t border-border/50 py-14 md:scroll-mt-16 md:py-20",
         className,
       )}
     >
@@ -61,7 +61,7 @@ export function SectionHeader({
           {label}
         </p>
       ) : null}
-      <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+      <h2 className="text-2xl font-semibold tracking-[-0.02em] text-foreground md:text-3xl">
         {title}
       </h2>
       {description ? (

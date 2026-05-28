@@ -1,12 +1,12 @@
 import type { Profile } from "@/types";
 
 export const profile: Profile = {
-  name: "Francisco Alejandro Galván",
+  name: "Francisco Galván",
   displayName: "Francisco Galván",
   cvHeadline: "Web & Mobile Engineer",
-  tagline: "Full Stack Developer",
+  tagline: "Web & Mobile Engineer",
   description:
-    "Desarrollo aplicaciones web y móviles modernas enfocadas en rendimiento, experiencia de usuario y soluciones empresariales reales.",
+    "Developer Full Stack especializado en aplicaciones escalables, APIs y experiencias móviles modernas.",
   summary:
     "Desarrollador Full Stack con 2+ años en EurekaSigma construyendo productos reales: apps móviles con Flutter, sistemas industriales, APIs biométricas y hardware BLE. Busco un equipo donde aportar desde el primer día.",
   location: "Guadalajara, México",

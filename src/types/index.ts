@@ -14,6 +14,8 @@ export type ExperienceItem = {
   company?: string;
   period: string;
   location: string;
+  /** Badge de antigüedad (ej. "2 años, 8 meses"). */
+  tenure?: string;
   highlights: string[];
 };
 

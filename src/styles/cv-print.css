@@ -24,7 +24,7 @@
   min-height: var(--cv-page-height);
   margin: 0 auto;
   padding: 0;
-  font-family: var(--font-geist-sans), Inter, "Segoe UI", Arial, sans-serif;
+  font-family: var(--font-manrope), Manrope, Inter, "Segoe UI", Arial, sans-serif;
   font-size: 9.5pt;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;

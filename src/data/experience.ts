@@ -4,8 +4,9 @@ export const experience: ExperienceItem[] = [
   {
     role: "Developer Full Stack",
     company: "EurekaSigma",
-    period: "Septiembre 2023 — Mayo 2026",
+    period: "Sep 2023 – May 2026",
     location: "Remoto",
+    tenure: "2 años, 8 meses",
     highlights: [
       "Desarrollé y desplegué 3 aplicaciones web y móviles con Flutter, React y Next.js en producción real.",
       "Implementé PWAs con Capacitor y APIs REST con despliegue en Android, iOS y servicios cloud.",
