@@ -14,7 +14,7 @@ export const stackCategories: StackCategory[] = [
   {
     id: "backend",
     title: "Backend",
-    technologies: ["Laravel", "Node.js", "REST APIs", "FastAPI"],
+    technologies: ["Laravel", "Node.js", "REST APIs", "FastAPI", "PostgreSQL", "MySQL"],
   },
   {
     id: "infra",
