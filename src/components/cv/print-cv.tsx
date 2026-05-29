@@ -155,15 +155,11 @@ export function PrintCv() {
 
           <section className="cv-main-section cv-stack-section">
             <h2 className="cv-main-section-title">Stack tecnico</h2>
-            <div className="cv-stack-grid">
+            <div className="cv-stack-rows">
               {stackCategories.map((cat) => (
-                <div key={cat.id} className="cv-stack-card">
-                  <h4 className="cv-stack-cat">{cat.title}</h4>
-                  <ul className="cv-stack-items">
-                    {cat.technologies.map((tech) => (
-                      <li key={tech}>{tech}</li>
-                    ))}
-                  </ul>
+                <div key={cat.id} className="cv-stack-row">
+                  <span className="cv-stack-cat">{cat.title}</span>
+                  <span className="cv-stack-techs">{formatStackLabel(cat.technologies)}</span>
                 </div>
               ))}
             </div>

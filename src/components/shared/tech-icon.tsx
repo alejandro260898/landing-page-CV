@@ -1,4 +1,12 @@
 import { Bluetooth, FileText, Pen, Sparkles, Wrench } from "lucide-react";
+import {
+  DockerBrandIcon,
+  FlutterBrandIcon,
+  KubernetesBrandIcon,
+  MySQLBrandIcon,
+  PostgreSQLBrandIcon,
+  TypeScriptBrandIcon,
+} from "@/components/shared/brand-tech-icon";
 import { cn } from "@/lib/utils";
 
 type Props = { className?: string };
@@ -20,47 +28,12 @@ const NextJsIcon = ({ className }: Props) => (
   </svg>
 );
 
-const TypeScriptIcon = ({ className }: Props) => (
-  <svg viewBox="0 0 24 24" className={cn("shrink-0", className)} aria-hidden>
-    <rect width="24" height="24" rx="4" fill="#3178C6" />
-    <text
-      x="12"
-      y="16"
-      textAnchor="middle"
-      fill="white"
-      fontSize="9"
-      fontWeight="700"
-      fontFamily="ui-sans-serif, system-ui, sans-serif"
-    >
-      TS
-    </text>
-  </svg>
-);
-
 const TailwindIcon = ({ className }: Props) => (
   <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
     <path
       d="M12 6C9.6 6 8.1 7.2 7.5 9.6c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.667 1.715 1.215C13.248 10.39 14.28 11.46 16.5 11.46c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.667-1.715-1.215C15.252 7.07 14.22 6 12 6zM7.5 11.46C5.1 11.46 3.6 12.66 3 15.06c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.667 1.715 1.215 .888.934 1.92 2.004 4.135 2.004 2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.667-1.715-1.215C10.752 12.53 9.72 11.46 7.5 11.46z"
       fill="#06B6D4"
     />
-  </svg>
-);
-
-const FlutterIcon = ({ className }: Props) => (
-  <svg
-    viewBox="0 0 24 24"
-    preserveAspectRatio="xMidYMid meet"
-    className={cn("aspect-square shrink-0", className)}
-    aria-hidden
-  >
-    {/* Ala superior — barra de la F */}
-    <path
-      fill="#54C5F8"
-      d="M3.8 11.4L10.5 5.3H18.5L11.5 11.4L18.5 18.5H10.8L3.8 11.4Z"
-    />
-    {/* Sombra inferior (separada del trazo superior para leer la F) */}
-    <path fill="#01579B" d="M11.4 12.6L18.5 18.7H14.8L7.2 12.6Z" />
-    <path fill="#29B6F6" d="M11.4 12.6L14.8 18.7H11.2L7.6 15.1Z" />
   </svg>
 );
 
@@ -109,47 +82,6 @@ const RestApiIcon = ({ className }: Props) => (
   <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
     <rect x="2" y="8" width="20" height="8" rx="2" stroke="#6366F1" strokeWidth="1.6" />
     <path d="M6 12h2M10 12h2M14 12h4" stroke="#6366F1" strokeWidth="1.6" strokeLinecap="round" />
-  </svg>
-);
-
-const DockerIcon = ({ className }: Props) => (
-  <svg
-    viewBox="0 0 24 24"
-    preserveAspectRatio="xMidYMid meet"
-    className={cn("aspect-square shrink-0", className)}
-    aria-hidden
-  >
-    <g fill="#2496ED">
-      {/* 8 contenedores: 4 + 3 + 1 (logo oficial) */}
-      <rect x="3.25" y="2.25" width="2.3" height="2.3" rx="0.45" />
-      <rect x="6" y="2.25" width="2.3" height="2.3" rx="0.45" />
-      <rect x="8.75" y="2.25" width="2.3" height="2.3" rx="0.45" />
-      <rect x="11.5" y="2.25" width="2.3" height="2.3" rx="0.45" />
-      <rect x="4.625" y="4.85" width="2.3" height="2.3" rx="0.45" />
-      <rect x="7.375" y="4.85" width="2.3" height="2.3" rx="0.45" />
-      <rect x="10.125" y="4.85" width="2.3" height="2.3" rx="0.45" />
-      <rect x="10.125" y="7.45" width="2.3" height="2.3" rx="0.45" />
-      {/* Ballena */}
-      <path d="M1.75 13.1c.3-2.4 2.2-4.2 4.55-4.45.55-1.9 2.3-3.1 4.25-3.25h7.7c3.4 0 6.15 2.75 6.15 6.15s-2.75 6.15-6.15 6.15H8.1c-3.55 0-6.25-2.75-6.25-6.1v-.5z" />
-      {/* Aleta cola */}
-      <path d="M20.2 16.9 22.7 18.2 21.6 20.1 18.9 18.6c.85-.55 1.3-1.15 1.3-1.7z" />
-      <path d="M20.45 14.2 23.15 13.5 22.7 16 20.15 15.1c.35-.95.85-1.5 1.3-1.9z" />
-    </g>
-  </svg>
-);
-
-const KubernetesIcon = ({ className }: Props) => (
-  <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
-    <circle cx="12" cy="12" r="10" stroke="#326CE5" strokeWidth="1.4" />
-    <circle cx="12" cy="12" r="2.4" fill="#326CE5" />
-    <line x1="12" y1="3.6" x2="12" y2="9.6" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="12" y1="14.4" x2="12" y2="20.4" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="3.6" y1="12" x2="9.6" y2="12" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="14.4" y1="12" x2="20.4" y2="12" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="6.1" y1="6.1" x2="10.2" y2="10.2" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="13.8" y1="13.8" x2="17.9" y2="17.9" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="17.9" y1="6.1" x2="13.8" y2="10.2" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
-    <line x1="10.2" y1="13.8" x2="6.1" y2="17.9" stroke="#326CE5" strokeWidth="1.6" strokeLinecap="round" />
   </svg>
 );
 
@@ -216,21 +148,23 @@ const DocIcon = ({ className }: Props) => (
 const iconMap: Record<string, React.ComponentType<Props>> = {
   React: ReactIcon,
   "Next.js": NextJsIcon,
-  TypeScript: TypeScriptIcon,
+  TypeScript: TypeScriptBrandIcon,
   TailwindCSS: TailwindIcon,
-  Flutter: FlutterIcon,
+  Flutter: FlutterBrandIcon,
   Capacitor: CapacitorIcon,
   PWAs: PWAIcon,
   BLE: BLEIcon,
   Laravel: LaravelIcon,
   "Node.js": NodeIcon,
   "REST APIs": RestApiIcon,
-  Docker: DockerIcon,
-  Kubernetes: KubernetesIcon,
+  Docker: DockerBrandIcon,
+  Kubernetes: KubernetesBrandIcon,
   Vercel: VercelIcon,
   Neon: NeonIcon,
   Python: PythonIcon,
   FastAPI: PythonIcon,
+  PostgreSQL: PostgreSQLBrandIcon,
+  MySQL: MySQLBrandIcon,
   "Debugging asistido": DebugIcon,
   "Prototipado UI": UIGenIcon,
   "Documentación técnica": DocIcon,
