@@ -14,21 +14,11 @@ export const stackCategories: StackCategory[] = [
   {
     id: "backend",
     title: "Backend",
-    technologies: ["Laravel", "Node.js", "REST APIs"],
+    technologies: ["Laravel", "Node.js", "REST APIs", "FastAPI"],
   },
   {
     id: "infra",
     title: "Infraestructura",
     technologies: ["Docker", "Kubernetes", "Vercel", "Neon"],
-  },
-  {
-    id: "ai",
-    title: "IA aplicada",
-    technologies: [
-      "Cursor",
-      "Debugging asistido",
-      "Prototipado UI",
-      "Documentación técnica",
-    ],
   },
 ];

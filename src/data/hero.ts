@@ -6,5 +6,5 @@ export const heroTechnologies = [
   "Laravel",
   "Kubernetes",
   "Python",
-  "AI",
+  "IA",
 ] as const;

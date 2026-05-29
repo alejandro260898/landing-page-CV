@@ -1,12 +1,12 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useIsClient } from "@/hooks/use-is-client";
+import { useThemeTransition } from "@/hooks/use-theme-transition";
 
 export function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { buttonRef, toggle, isDark } = useThemeTransition();
   const mounted = useIsClient();
 
   if (!mounted) {
@@ -21,14 +21,13 @@ export function ThemeToggle() {
     );
   }
 
-  const isDark = resolvedTheme === "dark";
-
   return (
     <Button
+      ref={buttonRef}
       variant="outline"
       size="icon"
       className="size-9 shrink-0 rounded-full"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={toggle}
       aria-label={isDark ? "Activar modo claro" : "Activar modo oscuro"}
     >
       {isDark ? <Sun /> : <Moon />}

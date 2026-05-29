@@ -195,13 +195,6 @@ const PythonIcon = ({ className }: Props) => (
   </svg>
 );
 
-const CursorIcon = ({ className }: Props) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={cn("shrink-0", className)} aria-hidden>
-    <rect width="24" height="24" rx="5" fill="#1a1a1a" />
-    <path d="M7 4l10 8-5 1-2 5L7 4z" fill="white" />
-  </svg>
-);
-
 const AIIcon = ({ className }: Props) => (
   <Sparkles className={cn("shrink-0 text-violet-400", className)} aria-hidden />
 );
@@ -237,11 +230,11 @@ const iconMap: Record<string, React.ComponentType<Props>> = {
   Vercel: VercelIcon,
   Neon: NeonIcon,
   Python: PythonIcon,
-  Cursor: CursorIcon,
+  FastAPI: PythonIcon,
   "Debugging asistido": DebugIcon,
   "Prototipado UI": UIGenIcon,
   "Documentación técnica": DocIcon,
-  AI: AIIcon,
+  IA: AIIcon,
 };
 
 type TechIconProps = { tech: string; className?: string };

@@ -8,11 +8,11 @@ export const experience: ExperienceItem[] = [
     location: "Remoto",
     tenure: "2 años, 8 meses",
     highlights: [
-      "Desarrollé y desplegué 3 aplicaciones web y móviles con Flutter, React y Next.js en producción real.",
-      "Implementé PWAs con Capacitor y APIs REST con despliegue en Android, iOS y servicios cloud.",
-      "Integré hardware BLE con relojes deportivos y sistemas industriales para operación en planta.",
-      "Optimicé procesos de desarrollo utilizando herramientas asistidas por IA para debugging y documentación técnica.",
-      "Trabajé en integraciones internas de pagos, facturación y gestión de bases de datos durante el primer año en la empresa."
+      "Desarrollé un módulo para registro y acceso biométrico mediante reconocimiento facial.",
+      "Participé en el diseño, planeación y desarrollo de proyectos empresariales para operación en planta, tanto en aplicaciones web como móviles.", 
+      "Diseñé interfaces enfocadas en mejorar la experiencia de usuario y optimizar procesos operativos.",
+      "Integré hardware BLE con relojes deportivos utilizados en productos desarrollados por la empresa.",
+      "Optimicé procesos de desarrollo mediante herramientas asistidas por IA, documentación técnica y automatización de tareas.",
     ],
   },
 ];

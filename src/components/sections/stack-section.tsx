@@ -65,8 +65,8 @@ export function StackSection() {
         {stackCategories.map((category, index) => {
           const meta = categoryMeta[category.id];
           const Icon = meta?.icon ?? Monitor;
-          const pillCols =
-            category.technologies.length <= 3 ? "grid-cols-1" : "grid-cols-2";
+          const techCount = category.technologies.length;
+          const useTwoCols = techCount > 1;
 
           return (
             <FadeIn
@@ -97,23 +97,42 @@ export function StackSection() {
 
                 <span className="my-4 block h-px w-full bg-border/70" aria-hidden />
 
-                <ul className={cn("grid gap-2", pillCols)}>
-                  {category.technologies.map((tech) => (
-                    <li key={tech} className="min-w-0">
-                      <span
+                <ul
+                  className={cn(
+                    "grid gap-2",
+                    useTwoCols ? "grid-cols-2" : "grid-cols-1",
+                  )}
+                >
+                  {category.technologies.map((tech, techIndex) => {
+                    const isLastOdd =
+                      useTwoCols &&
+                      techCount % 2 === 1 &&
+                      techIndex === techCount - 1;
+
+                    return (
+                      <li
+                        key={tech}
                         className={cn(
-                          "flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/80 px-2 py-1.5",
-                          "text-[11px] font-medium leading-tight text-muted-foreground",
-                          "transition-[color,border-color,background-color] duration-200",
-                          "group-hover:border-indigo-200/50 group-hover:bg-indigo-50/60 group-hover:text-foreground",
-                          "dark:group-hover:border-indigo-500/20 dark:group-hover:bg-indigo-500/[0.06]",
+                          "min-w-0",
+                          isLastOdd && "col-span-2 flex justify-center",
                         )}
                       >
-                        <TechIcon tech={tech} className="size-3.5" />
-                        <span>{tech}</span>
-                      </span>
-                    </li>
-                  ))}
+                        <span
+                          className={cn(
+                            "flex min-w-0 items-center justify-center gap-1.5 rounded-full border border-border/70 bg-background/80 px-2 py-1.5",
+                            "text-[11px] font-medium leading-tight text-muted-foreground",
+                            "transition-[color,border-color,background-color] duration-200",
+                            "group-hover:border-indigo-200/50 group-hover:bg-indigo-50/60 group-hover:text-foreground",
+                            "dark:group-hover:border-indigo-500/20 dark:group-hover:bg-indigo-500/[0.06]",
+                            isLastOdd ? "w-[calc(50%-0.25rem)]" : "w-full",
+                          )}
+                        >
+                          <TechIcon tech={tech} className="size-3.5" />
+                          <span>{tech}</span>
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <p className="sr-only">{formatStackLabel(category.technologies)}</p>

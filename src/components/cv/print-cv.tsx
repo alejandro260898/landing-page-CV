@@ -70,7 +70,7 @@ export function PrintCv() {
                 Contacto
               </SidebarTitle>
               <ul className="cv-contact-list">
-                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label="Telefono">
+                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label="Teléfono">
                   <a href={`tel:${profile.phone.replace(/\D/g, "")}`}>{profile.phone}</a>
                 </ContactRow>
                 <ContactRow icon={<Mail size={ICON_SIZE} strokeWidth={2} />} label="Email">
@@ -85,7 +85,7 @@ export function PrintCv() {
                 <ContactRow icon={<Globe size={ICON_SIZE} strokeWidth={2} />} label="Sitio web">
                   <a href={profile.website}>{profile.websiteDisplay}</a>
                 </ContactRow>
-                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicacion">
+                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicación">
                   <span>{profile.locationShort}</span>
                 </ContactRow>
               </ul>
@@ -93,7 +93,7 @@ export function PrintCv() {
 
             <section className="cv-sidebar-block">
               <SidebarTitle icon={<GraduationCap size={ICON_SIZE} strokeWidth={2} />}>
-                Educacion
+                Educación
               </SidebarTitle>
               {education.map((item) => (
                 <article key={item.degree} className="cv-edu-item">
