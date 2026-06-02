@@ -8,7 +8,7 @@ export const profile: Profile = {
   description:
     "Desarrollo aplicaciones web y móviles enfocadas en rendimiento, experiencia de usuario y operación real.",
   summary:
-    "Experiencia en el desarrollo de soluciones empresariales utilizando Flutter, React, Next.js, Laravel y servicios cloud para productos utilizados en operación diaria.",
+    "Experiencia en el desarrollo de soluciones empresariales utilizando Flutter, React, Next.js, Laravel, Python y servicios cloud para productos utilizados en operación diaria.",
   location: "Guadalajara, México",
   locationShort: "Guadalajara, Jal. México",
   availability: "Disponible híbrido/remoto",
