@@ -13,6 +13,7 @@ export const experience: ExperienceItem[] = [
       "Diseñé interfaces enfocadas en mejorar la experiencia de usuario y optimizar procesos operativos.",
       "Integré hardware BLE con relojes deportivos utilizados en productos desarrollados por la empresa.",
       "Optimicé procesos de desarrollo mediante herramientas asistidas por IA, documentación técnica y automatización de tareas.",
+      "Desarrollé APIs REST para la gestión de pagos, facturación e integración con bases de datos utilizadas por sistemas internos y nuevos proyectos de la empresa."
     ],
   },
 ];
