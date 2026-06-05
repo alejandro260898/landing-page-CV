@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { TechIcon } from "@/components/shared/tech-icon";
 import { heroTechnologies } from "@/data/hero";
 import { transitionMedium } from "@/lib/motion";
@@ -11,6 +12,7 @@ type HeroTechPillsProps = { className?: string };
 
 export function HeroTechPills({ className }: HeroTechPillsProps) {
   const reduceMotion = useReducedMotion();
+  const t = useTranslations("Common");
 
   return (
     <motion.ul
@@ -30,7 +32,7 @@ export function HeroTechPills({ className }: HeroTechPillsProps) {
           },
         },
       }}
-      aria-label="Tecnologías principales"
+      aria-label={t("mainTechnologies")}
     >
       {heroTechnologies.map((tech) => (
         <motion.li
@@ -43,7 +45,7 @@ export function HeroTechPills({ className }: HeroTechPillsProps) {
           <button
             type="button"
             title={tech}
-            aria-label={`${tech} — ir a stack`}
+            aria-label={t("goToStack", { tech })}
             onClick={() => scrollToSection("#stack")}
             className={cn(
               "group inline-flex size-9 cursor-pointer items-center justify-center rounded-xl",

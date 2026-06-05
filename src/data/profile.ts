@@ -6,9 +6,9 @@ export const profile: Profile = {
   cvHeadline: "Software Developer",
   tagline: "Software Developer",
   description:
-    "Desarrollo aplicaciones web y móviles enfocadas en rendimiento, experiencia de usuario y operación real.",
+    "Desarrollo aplicaciones web, móviles y APIs REST enfocadas en rendimiento, experiencia de usuario y operación real.",
   summary:
-    "Experiencia en el desarrollo de soluciones empresariales utilizando Flutter, React, Next.js, Laravel, Python y servicios cloud para productos utilizados en operación diaria.",
+    "Desarrollador Full Stack con más de 3 años de experiencia en el desarrollo de soluciones empresariales usando Flutter, React, Laravel, Python y Next.js. Especializado en la creación e integración de APIs REST, diseño de interfaces UI/UX y optimización de flujos de trabajo. Orientado a generar valor mediante código limpio, arquitecturas escalables y atención al detalle en cada etapa del desarrollo.",
   location: "Guadalajara, México",
   locationShort: "Guadalajara, Jal. México",
   availability: "Disponible híbrido/remoto",

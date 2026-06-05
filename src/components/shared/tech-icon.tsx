@@ -2,6 +2,8 @@ import { Bluetooth, FileText, Pen, Sparkles, Wrench } from "lucide-react";
 import {
   DockerBrandIcon,
   FlutterBrandIcon,
+  GitBrandIcon,
+  GitHubBrandIcon,
   KubernetesBrandIcon,
   MySQLBrandIcon,
   PostgreSQLBrandIcon,
@@ -33,6 +35,23 @@ const TailwindIcon = ({ className }: Props) => (
     <path
       d="M12 6C9.6 6 8.1 7.2 7.5 9.6c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.667 1.715 1.215C13.248 10.39 14.28 11.46 16.5 11.46c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.667-1.715-1.215C15.252 7.07 14.22 6 12 6zM7.5 11.46C5.1 11.46 3.6 12.66 3 15.06c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.667 1.715 1.215 .888.934 1.92 2.004 4.135 2.004 2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.667-1.715-1.215C10.752 12.53 9.72 11.46 7.5 11.46z"
       fill="#06B6D4"
+    />
+  </svg>
+);
+
+const DartIcon = ({ className }: Props) => (
+  <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
+    <path
+      d="M4.5 3.5h8.2L19.5 10.5v10.2a1 1 0 0 1-1 1H5.5a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2z"
+      fill="#0175C2"
+    />
+    <path
+      d="M12.7 3.5 19.5 10.3V20.7h-6.8L12.7 3.5z"
+      fill="#13B9FD"
+    />
+    <path
+      d="M4.5 12.2 12.7 20.4H5.5a1 1 0 0 1-1-1v-7.2z"
+      fill="#00D2B8"
     />
   </svg>
 );
@@ -151,6 +170,7 @@ const iconMap: Record<string, React.ComponentType<Props>> = {
   TypeScript: TypeScriptBrandIcon,
   TailwindCSS: TailwindIcon,
   Flutter: FlutterBrandIcon,
+  Dart: DartIcon,
   Capacitor: CapacitorIcon,
   PWAs: PWAIcon,
   BLE: BLEIcon,
@@ -158,9 +178,12 @@ const iconMap: Record<string, React.ComponentType<Props>> = {
   "Node.js": NodeIcon,
   "REST APIs": RestApiIcon,
   Docker: DockerBrandIcon,
+  DockerHub: DockerBrandIcon,
   Kubernetes: KubernetesBrandIcon,
   Vercel: VercelIcon,
   Neon: NeonIcon,
+  Git: GitBrandIcon,
+  GitHub: GitHubBrandIcon,
   Python: PythonIcon,
   FastAPI: PythonIcon,
   PostgreSQL: PostgreSQLBrandIcon,

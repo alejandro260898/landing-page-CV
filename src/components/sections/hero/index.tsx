@@ -2,6 +2,7 @@
 
 import { MapPin, Wifi } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Logo } from "@/components/shared/logo";
 import { profile } from "@/data/profile";
 import { easePremium, transitionMedium, transitionSlow } from "@/lib/motion";
@@ -13,6 +14,7 @@ import { HeroTechPills } from "./hero-tech-pills";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const t = useTranslations("Profile");
 
   return (
     <section
@@ -72,7 +74,7 @@ export function Hero() {
               aria-hidden
             />
             <p className="text-sm font-semibold tracking-[0.06em] text-foreground/70 uppercase sm:text-base">
-              {profile.cvHeadline}
+              {t("cvHeadline")}
             </p>
             <span
               className="h-px w-10 bg-gradient-to-l from-transparent via-foreground/25 to-foreground/40 sm:w-16"
@@ -90,7 +92,7 @@ export function Hero() {
             }
             className="mt-3 max-w-[46ch] text-pretty text-[0.875rem] leading-[1.7] font-normal text-muted-foreground sm:mt-6 sm:text-base sm:leading-[1.72] md:text-[1.05rem]"
           >
-            {profile.description}
+            {t("description")}
           </motion.p>
 
           <HeroTechPills />
@@ -111,8 +113,8 @@ export function Hero() {
             </span>
             <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-2.5 py-1.5 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
               <Wifi className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
-              <span className="sm:hidden">Híbrido/remoto</span>
-              <span className="hidden sm:inline">{profile.availability}</span>
+              <span className="sm:hidden">{t("availabilityShort")}</span>
+              <span className="hidden sm:inline">{t("availability")}</span>
             </span>
           </motion.div>
 

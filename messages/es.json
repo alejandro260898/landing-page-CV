@@ -1,0 +1,203 @@
+{
+  "LocaleToggle": {
+    "label": "Idioma",
+    "switchToEn": "Cambiar a inglés",
+    "switchToEs": "Cambiar a español"
+  },
+  "Meta": {
+    "description": "Desarrollo aplicaciones web, móviles y APIs REST enfocadas en rendimiento, experiencia de usuario y operación real.",
+    "tagline": "Software Developer",
+    "keywords": "Software Developer, React, Next.js, Flutter, TypeScript, Guadalajara, Desarrollo de software, PWAs, Laravel"
+  },
+  "Nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "stack": "Stack",
+    "experience": "Experiencia",
+    "projects": "Colaboraciones",
+    "education": "Educación"
+  },
+  "Common": {
+    "downloadCv": "Descargar CV",
+    "printHint": "Impresión: tamaño Carta, márgenes ninguno, sin encabezados/pies, con gráficos de fondo",
+    "goHome": "Ir al inicio",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "scrollDown": "Desplazarse hacia abajo",
+    "mainNav": "Principal",
+    "mobileNav": "Móvil",
+    "backToTop": "Volver arriba",
+    "copyright": "",
+    "contact": "Contacto",
+    "location": "Ubicación",
+    "explore": "Explorar",
+    "phone": "Teléfono",
+    "email": "Email",
+    "website": "Sitio web",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "moreAbout": "Más sobre {name}",
+    "mainTechnologies": "Tecnologías principales",
+    "goToStack": "{tech} — ir a stack",
+    "scrollToAbout": "Ir a la sección Sobre mí"
+  },
+  "Profile": {
+    "cvHeadline": "Software Developer",
+    "description": "Desarrollo aplicaciones web, móviles y APIs REST enfocadas en rendimiento, experiencia de usuario y operación real.",
+    "summary": "Desarrollador Full Stack con más de 3 años de experiencia en el desarrollo de soluciones empresariales usando Flutter, React, Laravel, Python y Next.js. Especializado en la creación e integración de APIs REST, diseño de interfaces UI/UX y optimización de flujos de trabajo. Orientado a generar valor mediante código limpio, arquitecturas escalables y atención al detalle en cada etapa del desarrollo.",
+    "availability": "Disponible híbrido/remoto",
+    "availabilityShort": "Híbrido/remoto",
+    "locationShort": "Guadalajara, Jal. México"
+  },
+  "Hero": {
+    "themeLight": "Activar modo claro",
+    "themeDark": "Activar modo oscuro",
+    "themeLabel": "Cambiar tema"
+  },
+  "About": {
+    "eyebrow": "Sobre mí",
+    "title": "Ingeniería orientada",
+    "titleLine2": "a resultados",
+    "paragraph1": "Desarrollo software enfocado en productos reales y entornos de producción. Me especializo en aplicaciones web y móviles escalables, integraciones API, PWAs y soluciones conectadas con hardware BLE.",
+    "features": {
+      "practical": {
+        "title": "Enfoque práctico",
+        "description": "Construyo soluciones funcionales enfocadas en resolver necesidades reales."
+      },
+      "fullstack": {
+        "title": "Desarrollo integral",
+        "description": "Experiencia trabajando frontend, backend, APIs, cloud e integraciones móviles."
+      },
+      "improvement": {
+        "title": "Mejora continua",
+        "description": "Optimizo procesos y adopto tecnologías que aportan valor al desarrollo."
+      },
+      "collaboration": {
+        "title": "Trabajo colaborativo",
+        "description": "Participación en equipos multidisciplinarios orientados a productos reales."
+      }
+    },
+    "stats": {
+      "production": { "value": "+3 años de experiencia", "label": "Entornos reales" },
+      "deployed": { "value": "Aplicaciones desplegadas", "label": "Web y móvil" },
+      "stack": { "value": "Stack moderno", "label": "Frontend a cloud" },
+      "learning": { "value": "Aprendizaje continuo", "label": "Evolución constante" }
+    }
+  },
+  "Stack": {
+    "eyebrow": "Tecnologías",
+    "title": "Mi stack tecnológico",
+    "intro": "Conjunto de herramientas y tecnologías que utilizo para desarrollar productos escalables, modernos y eficientes.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "Construyo interfaces modernas, rápidas y accesibles."
+      },
+      "mobile": {
+        "title": "Mobile",
+        "description": "Desarrollo aplicaciones móviles multiplataforma y nativas."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "APIs robustas, seguras y escalables."
+      },
+      "infra": {
+        "title": "Herramientas/Infraestructura",
+        "description": "Despliegue, contenedores y servicios en la nube."
+      }
+    }
+  },
+  "Experience": {
+    "eyebrow": "Experiencia",
+    "title": "Experiencia profesional",
+    "intro": "Mi recorrido profesional y los proyectos que han marcado mi crecimiento.",
+    "items": {
+      "eurekasigma": {
+        "role": "Developer Full Stack",
+        "location": "Remoto",
+        "highlights": [
+          "Desarrollé una API REST para registro y acceso biométrico utilizando FastAPI y DeepFace, incorporando detección de accesorios faciales como lentes, gorras y cubrebocas para mejorar la precisión del reconocimiento.",
+          "Desarrollé APIs REST con Laravel orientadas al procesamiento de pagos, timbrado de facturas y gestión de bases de datos.",
+          "Integré bases de datos relacionales y no relacionales como MySQL, PostgreSQL y MongoDB en aplicaciones web y móviles.",
+          "Participé en el diseño, planeación y desarrollo de más de 8 proyectos empresariales personalizados utilizando React, Next.js, Flutter y Laravel.",
+          "Diseñé interfaces UI/UX para mejorar la experiencia de usuario en múltiples proyectos.",
+          "Integré vía BLE relojes deportivos de diseño propio y personalizado para el cliente a una aplicación móvil.",
+          "Optimicé flujos de desarrollo mediante herramientas asistidas por IA aplicadas al debugging y documentación técnica.",
+          "Gestioné el despliegue, configuración, monitoreo de errores y actualización de 4 aplicaciones móviles en Google Play Store y App Store.",
+          "Desplegué aplicaciones web en distintos entornos utilizando Vercel, SSH y FTP.",
+          "Dockericé 2 APIs REST y gestioné el despliegue de sus imágenes mediante SSH y Kubernetes en DigitalOcean."
+        ]
+      }
+    }
+  },
+  "Projects": {
+    "eyebrow": "Colaboraciones",
+    "title": "Plataformas y productos",
+    "intro": "He participado en el desarrollo de productos digitales reales en entornos empresariales de producción, colaborando en equipos multidisciplinarios.",
+    "myRole": "Mi rol",
+    "items": {
+      "sirane": {
+        "description": "Sistema empresarial industrial para trazabilidad, QA y producción en planta.",
+        "role": "Desarrollé el frontend industrial con Next.js e integré módulos de trazabilidad y QA.",
+        "period": "Febrero 2026 — Mayo 2026"
+      },
+      "faceticket": {
+        "description": "Sistema móvil para acceso a eventos mediante reconocimiento facial y validación QR.",
+        "role": "Desarrollé la app móvil en Flutter, la API biométrica con FastAPI y DeepFace, y el panel web en React.",
+        "period": "Noviembre 2024 — Abril 2026"
+      },
+      "laurier": {
+        "description": "E-commerce y mayoreo con módulos empresariales para gestión de productos, clientes y pedidos.",
+        "role": "Desarrollé módulos de e-commerce y mayoreo con Next.js, TypeScript y APIs REST.",
+        "period": "Enero 2026 — Mayo 2026"
+      },
+      "recommend": {
+        "description": "Networking local con promociones y geolocalización para descubrimiento de negocios.",
+        "role": "Desarrollé la app móvil y la integración de geolocalización y sistema de recompensas virtuales.",
+        "period": "Junio 2025 — Mayo 2026"
+      },
+      "ballskore": {
+        "description": "Control de partidos en tiempo real mediante relojes BLE y hardware deportivo conectado.",
+        "role": "Desarrollé la integración BLE entre la app Flutter y hardware deportivo personalizado para el cliente.",
+        "period": "Enero 2025 — Agosto 2025"
+      }
+    }
+  },
+  "Cv": {
+    "printAriaLabel": "CV para impresión",
+    "printAriaLabelAts": "CV ATS para impresión",
+    "professionalProfile": "Perfil profesional",
+    "workExperience": "Experiencia laboral",
+    "featuredProjects": "Proyectos destacados",
+    "techStack": "Stack técnico",
+    "modalTitle": "Selecciona el formato",
+    "modalSubtitle": "Elige el estilo de CV que deseas descargar",
+    "normalTitle": "CV Profesional",
+    "normalDesc": "Diseño visual con columnas, sidebar y logo. Ideal para envío directo.",
+    "atsTitle": "CV ATS Friendly",
+    "atsDesc": "Formato limpio y simple optimizado para sistemas de selección automática.",
+    "downloadBtn": "Descargar",
+    "cancelBtn": "Cancelar",
+    "techStackSection": "Stack técnico",
+    "workExperienceSection": "Experiencia laboral",
+    "educationSection": "Educación",
+    "atsResumeTitle": "Resumen",
+    "atsEducationTitle": "Capacitación / Cursos",
+    "atsSkillsTitle": "Habilidades",
+    "atsExperienceTitle": "Experiencia"
+  },
+  "Education": {
+    "eyebrow": "Educación",
+    "title": "Formación académica",
+    "intro": "Mi formación académica y aprendizaje continuo que respaldan mi desarrollo profesional.",
+    "badge": "Formación profesional",
+    "footerNote": "En constante aprendizaje y crecimiento profesional.",
+    "items": {
+      "cucei": {
+        "degree": "Lic. Ingeniería en computación",
+        "institution": "CUCEI UDG",
+        "period": "2024"
+      }
+    }
+  }
+}

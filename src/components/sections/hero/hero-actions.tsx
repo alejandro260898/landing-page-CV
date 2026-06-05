@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { DownloadCvButton } from "@/components/shared/download-cv-button";
 import { profile } from "@/data/profile";
 import { transitionMedium } from "@/lib/motion";
@@ -30,6 +31,7 @@ const btnBase = cn(
 
 export function HeroActions() {
   const reduceMotion = useReducedMotion();
+  const t = useTranslations("Common");
 
   const itemVariants = {
     hidden: { opacity: 0, y: 14 },
@@ -57,7 +59,7 @@ export function HeroActions() {
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label={t("linkedin")}
             className={cn(
               btnBase,
               "bg-[#0A66C2] shadow-[0_2px_10px_-2px_rgba(10,102,194,0.35)]",
@@ -65,7 +67,7 @@ export function HeroActions() {
             )}
           >
             <LinkedInSvg className="size-5 sm:size-4" />
-            <span className="hidden sm:inline">LinkedIn</span>
+            <span className="hidden sm:inline">{t("linkedin")}</span>
             <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </motion.div>
@@ -75,7 +77,7 @@ export function HeroActions() {
             href={profile.github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label={t("github")}
             className={cn(
               btnBase,
               "bg-[#1a1a2e] shadow-[0_2px_10px_-2px_rgba(0,0,0,0.22)]",
@@ -84,7 +86,7 @@ export function HeroActions() {
             )}
           >
             <GitHubSvg className="size-5 sm:size-4" />
-            <span className="hidden sm:inline">GitHub</span>
+            <span className="hidden sm:inline">{t("github")}</span>
             <ArrowUpRight className="hidden size-3.5 opacity-70 sm:inline transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </motion.div>

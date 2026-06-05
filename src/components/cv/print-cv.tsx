@@ -1,10 +1,11 @@
 import { Globe, GraduationCap, Mail, MapPin, Phone, UserRound } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import { GitHubIcon, LinkedInIcon } from "@/components/cv/cv-icons";
-import { education } from "@/data/education";
-import { experience } from "@/data/experience";
+import { educationMeta } from "@/data/education-meta";
+import { experienceMeta } from "@/data/experience-meta";
 import { profile } from "@/data/profile";
-import { cvProjects } from "@/data/projects";
-import { stackCategories } from "@/data/stack";
+import { cvStackExtras } from "@/data/cv-stack-extra";
+import { stackCategoryMeta } from "@/data/stack-meta";
 import { formatStackLabel } from "@/lib/format";
 
 const ICON_SIZE = 13;
@@ -48,9 +49,17 @@ function ContactRow({
   );
 }
 
-export function PrintCv() {
+export async function PrintCv() {
+  const tc = await getTranslations("Common");
+  const tp = await getTranslations("Profile");
+  const tn = await getTranslations("Nav");
+  const te = await getTranslations("Experience");
+  const ted = await getTranslations("Education");
+  const ts = await getTranslations("Stack");
+  const tv = await getTranslations("Cv");
+
   return (
-    <div id="cv-print" className="print-only cv-document" aria-label="CV para impresion">
+    <div id="cv-print" className="print-only cv-document" aria-label={tv("printAriaLabel")}>
       <div className="cv-layout">
         <aside className="cv-sidebar">
           <div className="cv-logo-wrap">
@@ -67,39 +76,39 @@ export function PrintCv() {
           <div className="cv-sidebar-stack">
             <section className="cv-sidebar-block">
               <SidebarTitle icon={<UserRound size={ICON_SIZE} strokeWidth={2} />}>
-                Contacto
+                {tc("contact")}
               </SidebarTitle>
               <ul className="cv-contact-list">
-                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label="Teléfono">
+                <ContactRow icon={<Phone size={ICON_SIZE} strokeWidth={2} />} label={tc("phone")}>
                   <a href={`tel:${profile.phone.replace(/\D/g, "")}`}>{profile.phone}</a>
                 </ContactRow>
-                <ContactRow icon={<Mail size={ICON_SIZE} strokeWidth={2} />} label="Email">
+                <ContactRow icon={<Mail size={ICON_SIZE} strokeWidth={2} />} label={tc("email")}>
                   <a href={`mailto:${profile.email}`}>{profile.email}</a>
                 </ContactRow>
-                <ContactRow icon={<LinkedInIcon size={ICON_SIZE} />} label="LinkedIn">
+                <ContactRow icon={<LinkedInIcon size={ICON_SIZE} />} label={tc("linkedin")}>
                   <a href={profile.linkedin}>{profile.linkedinDisplay}</a>
                 </ContactRow>
-                <ContactRow icon={<GitHubIcon size={ICON_SIZE} />} label="GitHub">
+                <ContactRow icon={<GitHubIcon size={ICON_SIZE} />} label={tc("github")}>
                   <a href={profile.github}>{profile.githubDisplay}</a>
                 </ContactRow>
-                <ContactRow icon={<Globe size={ICON_SIZE} strokeWidth={2} />} label="Sitio web">
+                <ContactRow icon={<Globe size={ICON_SIZE} strokeWidth={2} />} label={tc("website")}>
                   <a href={profile.website}>{profile.websiteDisplay}</a>
                 </ContactRow>
-                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label="Ubicación">
-                  <span>{profile.locationShort}</span>
+                <ContactRow icon={<MapPin size={ICON_SIZE} strokeWidth={2} />} label={tc("location")}>
+                  <span>{tp("locationShort")}</span>
                 </ContactRow>
               </ul>
             </section>
 
             <section className="cv-sidebar-block">
               <SidebarTitle icon={<GraduationCap size={ICON_SIZE} strokeWidth={2} />}>
-                Educación
+                {tn("education")}
               </SidebarTitle>
-              {education.map((item) => (
-                <article key={item.degree} className="cv-edu-item">
-                  <strong className="cv-edu-degree">{item.degree}</strong>
-                  <p className="cv-edu-school">{item.institution}</p>
-                  <p className="cv-edu-year">{item.period}</p>
+              {educationMeta.map((item) => (
+                <article key={item.id} className="cv-edu-item">
+                  <strong className="cv-edu-degree">{ted(`items.${item.id}.degree`)}</strong>
+                  <p className="cv-edu-school">{ted(`items.${item.id}.institution`)}</p>
+                  <p className="cv-edu-year">{ted(`items.${item.id}.period`)}</p>
                 </article>
               ))}
             </section>
@@ -109,59 +118,59 @@ export function PrintCv() {
         <main className="cv-main">
           <header className="cv-main-header">
             <h1 className="cv-main-name">{profile.displayName}</h1>
-            <p className="cv-main-role">{profile.cvHeadline.toUpperCase()}</p>
+            <p className="cv-main-role">{tp("cvHeadline").toUpperCase()}</p>
           </header>
 
           <section className="cv-main-section">
-            <h2 className="cv-main-section-title">Perfil profesional</h2>
-            <p className="cv-profile-text">{profile.summary}</p>
+            <h2 className="cv-main-section-title">{tv("professionalProfile")}</h2>
+            <p className="cv-profile-text">{tp("summary")}</p>
           </section>
 
           <section className="cv-main-section">
-            <h2 className="cv-main-section-title">Experiencia laboral</h2>
-            {experience.map((item) => (
-              <article key={item.role} className="cv-exp-entry">
-                <h3 className="cv-exp-role">{item.role}</h3>
-                <p className="cv-exp-company">
-                  {item.company ? (
-                    <>
-                      <strong>{item.company}</strong>
-                      <span className="cv-exp-sep"> - </span>
-                    </>
-                  ) : null}
-                  <span>{item.period}</span>
-                </p>
-                <ul className="cv-exp-list">
-                  {item.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </section>
+            <h2 className="cv-main-section-title">{tv("workExperience")}</h2>
+            {experienceMeta.map((item) => {
+              const highlights = te.raw(`items.${item.id}.highlights`) as string[];
 
-          <section className="cv-main-section cv-projects-section">
-            <h2 className="cv-main-section-title">Proyectos destacados</h2>
-            <div className="cv-projects-list">
-              {cvProjects.map((project) => (
-                <article key={project.id} className="cv-project-item">
-                  <h3 className="cv-project-name">{project.name} <span className="cv-project-period">{project.period}</span></h3>
-                  <p className="cv-project-desc">{project.description}</p>
-                  <p className="cv-project-stack">{formatStackLabel(project.stack)}</p>
+              return (
+                <article key={item.id} className="cv-exp-entry">
+                  <h3 className="cv-exp-role">{te(`items.${item.id}.role`)}</h3>
+                  <p className="cv-exp-company">
+                    {item.company ? (
+                      <>
+                        <strong>{item.company}</strong>
+                        <span className="cv-exp-sep"> - </span>
+                      </>
+                    ) : null}
+                    <span>{item.period}</span>
+                  </p>
+                  <ul className="cv-exp-list">
+                    {highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
                 </article>
-              ))}
-            </div>
+              );
+            })}
           </section>
 
           <section className="cv-main-section cv-stack-section">
-            <h2 className="cv-main-section-title">Stack tecnico</h2>
+            <h2 className="cv-main-section-title">{tv("techStack")}</h2>
             <div className="cv-stack-rows">
-              {stackCategories.map((cat) => (
+              {stackCategoryMeta.map((cat) => {
+                const technologies = [
+                  ...cat.technologies,
+                  ...(cvStackExtras[cat.id] ?? []),
+                ];
+
+                return (
                 <div key={cat.id} className="cv-stack-row">
-                  <span className="cv-stack-cat">{cat.title}</span>
-                  <span className="cv-stack-techs">{formatStackLabel(cat.technologies)}</span>
+                  <span className="cv-stack-cat">{ts(`categories.${cat.id}.title`)}</span>
+                  <span className="cv-stack-techs">
+                    {formatStackLabel(technologies)}
+                  </span>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         </main>

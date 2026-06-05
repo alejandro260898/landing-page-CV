@@ -2,19 +2,23 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { DownloadCvButton } from "@/components/shared/download-cv-button";
 import { Logo } from "@/components/shared/logo";
-import { navItems } from "@/data/navigation";
 import { useActiveSection } from "@/hooks/use-active-section";
+import { useNavItems } from "@/hooks/use-nav-items";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
+import { LocaleToggle } from "./locale-toggle";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const activeSection = useActiveSection();
+  const navItems = useNavItems();
+  const t = useTranslations("Common");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -48,14 +52,14 @@ export function Header() {
             scrollToSection("#inicio");
             setOpen(false);
           }}
-          aria-label="Ir al inicio"
+          aria-label={t("goHome")}
         >
           <Logo size="header" />
         </Link>
 
         <nav
           className="hidden items-center gap-0.5 lg:flex"
-          aria-label="Principal"
+          aria-label={t("mainNav")}
         >
           {navItems.map((item) => {
             const isActive = activeSection === item.href;
@@ -87,6 +91,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <LocaleToggle />
           <ThemeToggle />
           <div className="hidden md:block">
             <DownloadCvButton
@@ -99,7 +104,7 @@ export function Header() {
             className="inline-flex size-9 items-center justify-center rounded-full border border-border lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-label={open ? t("closeMenu") : t("openMenu")}
           >
             {open ? <X className="size-4" /> : <Menu className="size-4" />}
           </button>
@@ -108,7 +113,7 @@ export function Header() {
 
       {open ? (
         <div className="border-t border-border bg-background lg:hidden">
-          <nav className="flex max-h-[70dvh] flex-col gap-0.5 overflow-y-auto px-4 py-3" aria-label="Móvil">
+          <nav className="flex max-h-[70dvh] flex-col gap-0.5 overflow-y-auto px-4 py-3" aria-label={t("mobileNav")}>
             {navItems.map((item) => {
               const isActive = activeSection === item.href;
               return (

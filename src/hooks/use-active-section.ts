@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { navItems } from "@/data/navigation";
+import { sectionHrefs } from "@/data/section-hrefs";
 
 /** Appbar (64px) + margen de activación */
 const ACTIVATION_LINE = 96;
 const TOP_THRESHOLD = 48;
 
 export function useActiveSection() {
-  const [active, setActive] = useState<string>(navItems[0]?.href ?? "");
+  const [active, setActive] = useState<string>(sectionHrefs[0] ?? "");
 
   useEffect(() => {
     let frame = 0;
@@ -19,13 +19,16 @@ export function useActiveSection() {
         return;
       }
 
-      const sections = navItems
-        .map((item) => {
-          const id = item.href.replace("#", "");
+      const sections = sectionHrefs
+        .map((href) => {
+          const id = href.replace("#", "");
           const el = document.getElementById(id);
-          return el ? { href: item.href, el } : null;
+          return el ? { href, el } : null;
         })
-        .filter((s): s is { href: string; el: HTMLElement } => s !== null);
+        .filter(
+          (s): s is { href: (typeof sectionHrefs)[number]; el: HTMLElement } =>
+            s !== null,
+        );
 
       if (sections.length === 0) return;
 

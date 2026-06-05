@@ -1,0 +1,203 @@
+{
+  "LocaleToggle": {
+    "label": "Language",
+    "switchToEn": "Switch to English",
+    "switchToEs": "Switch to Spanish"
+  },
+  "Meta": {
+    "description": "I build web, mobile applications and REST APIs focused on performance, user experience, and real-world operation.",
+    "tagline": "Software Developer",
+    "keywords": "Software Developer, React, Next.js, Flutter, TypeScript, Guadalajara, Software development, PWAs, Laravel"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "stack": "Stack",
+    "experience": "Experience",
+    "projects": "Collaborations",
+    "education": "Education"
+  },
+  "Common": {
+    "downloadCv": "Download CV",
+    "printHint": "Print: Letter size, no margins, no headers/footers, with background graphics",
+    "goHome": "Go to home",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "scrollDown": "Scroll down",
+    "mainNav": "Main",
+    "mobileNav": "Mobile",
+    "backToTop": "Back to top",
+    "copyright": "All rights reserved.",
+    "contact": "Contact",
+    "location": "Location",
+    "explore": "Explore",
+    "phone": "Phone",
+    "email": "Email",
+    "website": "Website",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "moreAbout": "More about {name}",
+    "mainTechnologies": "Main technologies",
+    "goToStack": "{tech} — go to stack",
+    "scrollToAbout": "Go to About section"
+  },
+  "Profile": {
+    "cvHeadline": "Software Developer",
+    "description": "I build web, mobile applications and REST APIs focused on performance, user experience, and real-world operation.",
+    "summary": "Full Stack Developer with over 3 years of experience building enterprise solutions using Flutter, React, Laravel, Python, and Next.js. Specialized in REST API development and integration, UI/UX interface design, and workflow optimization. Focused on delivering value through clean code, scalable architectures, and attention to detail at every stage of development.",
+    "availability": "Available hybrid/remote",
+    "availabilityShort": "Hybrid/remote",
+    "locationShort": "Guadalajara, Jal. Mexico"
+  },
+  "Hero": {
+    "themeLight": "Switch to light mode",
+    "themeDark": "Switch to dark mode",
+    "themeLabel": "Toggle theme"
+  },
+  "About": {
+    "eyebrow": "About",
+    "title": "Engineering focused",
+    "titleLine2": "on results",
+    "paragraph1": "I build software for real products and production environments. I specialize in scalable web and mobile applications, API integrations, PWAs, and solutions connected to BLE hardware.",
+    "features": {
+      "practical": {
+        "title": "Practical approach",
+        "description": "I build functional solutions focused on solving real needs."
+      },
+      "fullstack": {
+        "title": "End-to-end development",
+        "description": "Experience across frontend, backend, APIs, cloud, and mobile integrations."
+      },
+      "improvement": {
+        "title": "Continuous improvement",
+        "description": "I optimize processes and adopt technologies that add value to development."
+      },
+      "collaboration": {
+        "title": "Collaborative work",
+        "description": "Experience in multidisciplinary teams building real-world products."
+      }
+    },
+    "stats": {
+      "production": { "value": "+3 years of experience", "label": "Real environments" },
+      "deployed": { "value": "Deployed applications", "label": "Web & mobile" },
+      "stack": { "value": "Modern stack", "label": "Frontend to cloud" },
+      "learning": { "value": "Continuous learning", "label": "Always evolving" }
+    }
+  },
+  "Stack": {
+    "eyebrow": "Technologies",
+    "title": "My tech stack",
+    "intro": "Tools and technologies I use to build scalable, modern, and efficient products.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "I build modern, fast, and accessible interfaces."
+      },
+      "mobile": {
+        "title": "Mobile",
+        "description": "Cross-platform and native mobile application development."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Robust, secure, and scalable APIs."
+      },
+      "infra": {
+        "title": "Tools/Infrastructure",
+        "description": "Deployment, containers, and cloud services."
+      }
+    }
+  },
+  "Experience": {
+    "eyebrow": "Experience",
+    "title": "Professional experience",
+    "intro": "My professional journey and the projects that have shaped my growth.",
+    "items": {
+      "eurekasigma": {
+        "role": "Full Stack Developer",
+        "location": "Remote",
+        "highlights": [
+          "Built a REST API for biometric registration and access using FastAPI and DeepFace, incorporating facial accessory detection such as glasses, caps, and face masks to improve recognition accuracy.",
+          "Developed REST APIs with Laravel for payment processing, invoice stamping, and database management.",
+          "Integrated relational and non-relational databases such as MySQL, PostgreSQL, and MongoDB into web and mobile applications.",
+          "Contributed to the design, planning, and development of more than 8 custom enterprise projects using React, Next.js, Flutter, and Laravel.",
+          "Designed UI/UX interfaces to improve user experience across multiple projects.",
+          "Integrated custom client-designed sports watches via BLE into a mobile application.",
+          "Optimized development workflows using AI-assisted tools for debugging and technical documentation.",
+          "Managed deployment, configuration, error monitoring, and updates for 4 mobile applications on Google Play Store and App Store.",
+          "Deployed web applications across different environments using Vercel, SSH, and FTP.",
+          "Dockerized 2 REST APIs and managed deployment of their images via SSH and Kubernetes on DigitalOcean."
+        ]
+      }
+    }
+  },
+  "Projects": {
+    "eyebrow": "Collaborations",
+    "title": "Platforms & products",
+    "intro": "I have contributed to real digital products in production enterprise environments, working with multidisciplinary teams.",
+    "myRole": "My role",
+    "items": {
+      "sirane": {
+        "description": "Industrial enterprise system for traceability, QA, and plant-floor production.",
+        "role": "Built the industrial frontend with Next.js and integrated traceability and QA modules.",
+        "period": "February 2026 — May 2026"
+      },
+      "faceticket": {
+        "description": "Mobile system for event access through facial recognition and QR validation.",
+        "role": "Built the Flutter mobile app, biometric API with FastAPI and DeepFace, and the React web dashboard.",
+        "period": "November 2024 — April 2026"
+      },
+      "laurier": {
+        "description": "E-commerce and wholesale platform with enterprise modules for products, customers, and orders.",
+        "role": "Built e-commerce and wholesale modules using Next.js, TypeScript, and REST APIs.",
+        "period": "January 2026 — May 2026"
+      },
+      "recommend": {
+        "description": "Local networking with promotions and geolocation for business discovery.",
+        "role": "Built the mobile app with geolocation integration and virtual rewards system.",
+        "period": "June 2025 — May 2026"
+      },
+      "ballskore": {
+        "description": "Real-time match control through BLE watches and connected sports hardware.",
+        "role": "Built the BLE integration between the Flutter app and custom client sports hardware.",
+        "period": "January 2025 — August 2025"
+      }
+    }
+  },
+  "Cv": {
+    "printAriaLabel": "CV for printing",
+    "printAriaLabelAts": "ATS CV for printing",
+    "professionalProfile": "Professional profile",
+    "workExperience": "Work experience",
+    "featuredProjects": "Featured projects",
+    "techStack": "Tech stack",
+    "modalTitle": "Select format",
+    "modalSubtitle": "Choose the CV style you want to download",
+    "normalTitle": "Professional CV",
+    "normalDesc": "Visual design with columns, sidebar and logo. Ideal for direct delivery.",
+    "atsTitle": "ATS Friendly CV",
+    "atsDesc": "Clean and simple format optimized for applicant tracking systems.",
+    "downloadBtn": "Download",
+    "cancelBtn": "Cancel",
+    "techStackSection": "Tech stack",
+    "workExperienceSection": "Work experience",
+    "educationSection": "Education",
+    "atsResumeTitle": "Summary",
+    "atsEducationTitle": "Education",
+    "atsSkillsTitle": "Skills",
+    "atsExperienceTitle": "Experience"
+  },
+  "Education": {
+    "eyebrow": "Education",
+    "title": "Academic background",
+    "intro": "My academic training and continuous learning that support my professional development.",
+    "badge": "Professional training",
+    "footerNote": "Always learning and growing professionally.",
+    "items": {
+      "cucei": {
+        "degree": "B.S. in Computer Engineering",
+        "institution": "CUCEI UDG",
+        "period": "2024"
+      }
+    }
+  }
+}

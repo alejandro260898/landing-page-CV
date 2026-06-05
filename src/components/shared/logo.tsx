@@ -30,8 +30,8 @@ export function Logo({ className, size = "md", priority = false }: LogoProps) {
   return (
     <div
       className={cn(
-        "relative shrink-0 overflow-hidden rounded-full border border-border/50",
-        isDark ? "bg-black" : "bg-[#f2f3f5]",
+        "relative shrink-0 overflow-hidden rounded-full",
+        isDark ? "bg-[#0a1018]" : "bg-white",
         dimensions.container,
         className,
       )}
@@ -39,11 +39,12 @@ export function Logo({ className, size = "md", priority = false }: LogoProps) {
     >
       {mounted ? (
         <Image
+          key={logoSrc}
           src={logoSrc}
           alt="Logo Francisco Galván"
           width={dimensions.image}
           height={dimensions.image}
-          className="size-full object-cover"
+          className="size-full object-contain"
           priority={priority}
         />
       ) : (

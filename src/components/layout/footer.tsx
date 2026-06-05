@@ -8,10 +8,11 @@ import {
   Phone,
 } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { GitHubIcon, LinkedInIcon } from "@/components/cv/cv-icons";
 import { Logo } from "@/components/shared/logo";
-import { navItems } from "@/data/navigation";
 import { profile } from "@/data/profile";
+import { useNavItems } from "@/hooks/use-nav-items";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
 
@@ -26,29 +27,33 @@ function getWhatsAppUrl(phone: string) {
   return `https://wa.me/${digits}`;
 }
 
-const contactLinks = [
+const contactLinkDefs = [
   {
     icon: Mail,
-    label: profile.email,
+    labelKey: null as null,
+    value: profile.email,
     href: `mailto:${profile.email}`,
     external: false,
   },
   {
     icon: Phone,
-    label: formatPhoneDisplay(profile.phone),
+    labelKey: null as null,
+    value: formatPhoneDisplay(profile.phone),
     href: getWhatsAppUrl(profile.phone),
     external: true,
   },
   {
     icon: LinkedInIcon,
-    label: "LinkedIn",
+    labelKey: "linkedin" as const,
+    value: null,
     href: profile.linkedin,
     external: true,
     isSvg: true,
   },
   {
     icon: GitHubIcon,
-    label: "GitHub",
+    labelKey: "github" as const,
+    value: null,
     href: profile.github,
     external: true,
     isSvg: true,
@@ -86,6 +91,9 @@ function FooterColumn({
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const navItems = useNavItems();
+  const t = useTranslations("Common");
+  const tp = useTranslations("Profile");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -106,17 +114,18 @@ export function Footer() {
                   {profile.displayName}
                 </p>
                 <p className="mt-0.5 text-xs text-muted-foreground">
-                  {profile.cvHeadline}
+                  {tp("cvHeadline")}
                 </p>
               </div>
             </div>
           </FooterColumn>
 
           {/* Contact */}
-          <FooterColumn title="Contacto" withDivider className="min-w-0 lg:overflow-visible">
+          <FooterColumn title={t("contact")} withDivider className="min-w-0 lg:overflow-visible">
             <ul className="space-y-3 max-lg:overflow-x-auto max-lg:pb-0.5">
-              {contactLinks.map((item) => {
+              {contactLinkDefs.map((item) => {
                 const Icon = item.icon;
+                const label = item.labelKey ? t(item.labelKey) : item.value!;
                 const content = (
                   <>
                     <span className="flex size-4 shrink-0 items-center justify-center text-muted-foreground">
@@ -127,13 +136,13 @@ export function Footer() {
                       )}
                     </span>
                     <span className="whitespace-nowrap text-[0.8125rem] leading-none text-muted-foreground transition-colors group-hover:text-foreground max-lg:text-xs">
-                      {item.label}
+                      {label}
                     </span>
                   </>
                 );
 
                 return (
-                  <li key={item.label}>
+                  <li key={label}>
                     <a
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
@@ -149,7 +158,7 @@ export function Footer() {
           </FooterColumn>
 
           {/* Location */}
-          <FooterColumn title="Ubicación" withDivider className="min-w-[11rem] lg:min-w-0">
+          <FooterColumn title={t("location")} withDivider className="min-w-[11rem] lg:min-w-0">
             <p className="flex items-center gap-2.5 whitespace-nowrap text-[0.8125rem] text-muted-foreground">
               <MapPin className="size-3.5 shrink-0 text-foreground/50" strokeWidth={1.75} />
               {profile.location}
@@ -158,7 +167,7 @@ export function Footer() {
 
           {/* Explore */}
           <FooterColumn
-            title="Explorar"
+            title={t("explore")}
             withDivider={false}
             className="min-w-0 lg:px-6 xl:px-8"
           >
@@ -185,7 +194,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="relative border-t border-border/60 px-5 py-5 sm:px-6 lg:px-10 xl:px-12">
           <p className="text-center text-[11px] text-muted-foreground/80">
-            © {year} {profile.displayName}. Todos los derechos reservados.
+            © {year} {profile.displayName}. {t("copyright")}
           </p>
           <button
             type="button"
@@ -195,7 +204,7 @@ export function Footer() {
               "text-muted-foreground transition-[color,background-color,border-color,transform] duration-200",
               "hover:border-foreground/20 hover:bg-muted/50 hover:text-foreground",
             )}
-            aria-label="Volver arriba"
+            aria-label={t("backToTop")}
           >
             <ArrowUp className="size-4" strokeWidth={2} />
           </button>

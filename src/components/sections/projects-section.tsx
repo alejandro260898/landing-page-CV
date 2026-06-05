@@ -10,10 +10,11 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Section } from "@/components/shared/section";
 import { SectionReveal } from "@/components/shared/section-reveal";
-import { projects } from "@/data/projects";
+import { projectsMeta } from "@/data/projects-meta";
 import { cn } from "@/lib/utils";
 
 const projectIcons: Record<
@@ -48,6 +49,9 @@ const projectIcons: Record<
 };
 
 export function ProjectsSection() {
+  const t = useTranslations("Projects");
+  const tc = useTranslations("Common");
+
   return (
     <Section
       id="colaboraciones"
@@ -55,25 +59,21 @@ export function ProjectsSection() {
       containerClassName="max-w-7xl"
     >
       <SectionReveal>
-      {/* Header */}
       <FadeIn>
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-indigo-500 dark:text-indigo-400">
-          Colaboraciones
+          {t("eyebrow")}
         </p>
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
-          Plataformas y productos
+          {t("title")}
         </h2>
         <p className="mt-3 max-w-4xl text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
-          He participado en el desarrollo de productos digitales reales en
-          entornos empresariales de producción, colaborando en equipos
-          multidisciplinarios.
+          {t("intro")}
         </p>
         <span className="mt-5 block h-px w-10 bg-indigo-400/60" aria-hidden />
       </FadeIn>
 
-      {/* Project list */}
       <div className="mt-8 space-y-3 md:mt-10 md:space-y-4">
-        {projects.map((project, index) => {
+        {projectsMeta.map((project, index) => {
           const { Icon, iconClass, bgClass } =
             projectIcons[project.id] ?? projectIcons.sirane;
 
@@ -88,7 +88,6 @@ export function ProjectsSection() {
                 "dark:shadow-[0_2px_12px_-6px_rgba(0,0,0,0.35)] dark:hover:border-indigo-500/25",
               )}
             >
-              {/* Identity */}
               <div className="flex items-center gap-3 border-b border-border/60 p-5 lg:border-b-0 lg:border-r lg:p-6">
                 <span
                   className={cn(
@@ -104,13 +103,13 @@ export function ProjectsSection() {
                     <h3 className="text-base font-bold tracking-[-0.02em] text-foreground">
                       {project.name}
                     </h3>
-                    {project.href ? (
+                    {"href" in project && project.href ? (
                       <Link
                         href={project.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex size-7 shrink-0 items-center justify-center rounded-md text-muted-foreground opacity-0 transition-[opacity,color] duration-200 group-hover:opacity-100 hover:text-foreground"
-                        aria-label={`Más sobre ${project.name}`}
+                        aria-label={tc("moreAbout", { name: project.name })}
                       >
                         <ArrowUpRight className="size-3.5" />
                       </Link>
@@ -119,14 +118,16 @@ export function ProjectsSection() {
                 </div>
               </div>
 
-              {/* Description */}
               <div className="flex min-w-0 items-center border-b border-border/60 px-5 py-4 lg:min-w-[22rem] lg:border-b-0 lg:border-r lg:px-6 lg:py-5">
-                <p className="text-pretty text-[0.8125rem] leading-[1.7] text-muted-foreground sm:text-sm">
-                  {project.description}
-                </p>
+                <div className="text-pretty text-[0.8125rem] leading-[1.7] text-muted-foreground sm:text-sm">
+                  <p>{t(`items.${project.id}.description`)}</p>
+                  <p className="mt-2">
+                    <span className="font-semibold text-foreground/80">{t("myRole")}: </span>
+                    {t(`items.${project.id}.role`)}
+                  </p>
+                </div>
               </div>
 
-              {/* Stack pills */}
               <div className="flex w-full flex-wrap content-center items-center gap-2 p-5 lg:w-[15rem] lg:shrink-0 lg:justify-start lg:p-6">
                 {project.stack.map((tech) => (
                   <span

@@ -1,11 +1,11 @@
 "use client";
 
 import { FileText } from "lucide-react";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { profile } from "@/data/profile";
+import { CvModal } from "@/components/shared/cv-modal";
 import { cn } from "@/lib/utils";
-
-const PRINT_TITLE = profile.displayName;
 
 type DownloadCvButtonProps = {
   variant?: "default" | "outline";
@@ -18,31 +18,24 @@ export function DownloadCvButton({
   size = "default",
   className,
 }: DownloadCvButtonProps) {
-  const handleDownload = () => {
-    const previousTitle = document.title;
-    document.title = PRINT_TITLE;
-
-    const restoreTitle = () => {
-      document.title = previousTitle;
-    };
-
-    window.addEventListener("afterprint", restoreTitle, { once: true });
-
-    /* Vista previa de impresión: solo el CV, sin UI de la landing */
-    window.print();
-  };
+  const t = useTranslations("Common");
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <Button
-      type="button"
-      variant={variant}
-      size={size}
-      className={cn("cursor-pointer", className)}
-      onClick={handleDownload}
-      title="Impresión: tamaño Carta, márgenes ninguno, sin encabezados/pies, con gráficos de fondo"
-    >
-      <FileText data-icon="inline-start" />
-      Descargar CV
-    </Button>
+    <>
+      <Button
+        type="button"
+        variant={variant}
+        size={size}
+        className={cn("cursor-pointer", className)}
+        onClick={() => setModalOpen(true)}
+        title={t("printHint")}
+      >
+        <FileText data-icon="inline-start" />
+        {t("downloadCv")}
+      </Button>
+
+      <CvModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 }

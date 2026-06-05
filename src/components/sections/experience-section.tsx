@@ -1,13 +1,18 @@
 "use client";
 
 import { Briefcase, CalendarDays, MapPin } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Section } from "@/components/shared/section";
 import { SectionReveal } from "@/components/shared/section-reveal";
-import { experience } from "@/data/experience";
+import { experienceMeta } from "@/data/experience-meta";
+import { calculateTenure } from "@/lib/calculate-tenure";
 import { cn } from "@/lib/utils";
 
 export function ExperienceSection() {
+  const t = useTranslations("Experience");
+  const locale = useLocale() as "es" | "en";
+
   return (
     <Section
       id="experiencia"
@@ -15,24 +20,21 @@ export function ExperienceSection() {
       containerClassName="max-w-7xl"
     >
       <SectionReveal>
-      {/* Header */}
       <FadeIn>
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-indigo-500 dark:text-indigo-400">
-          Experiencia
+          {t("eyebrow")}
         </p>
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
-          Experiencia profesional
+          {t("title")}
         </h2>
         <p className="mt-3 max-w-4xl text-pretty text-[0.9375rem] leading-relaxed text-muted-foreground md:text-base">
-          Mi recorrido profesional y los proyectos que han marcado mi crecimiento.
+          {t("intro")}
         </p>
         <span className="mt-5 block h-px w-10 bg-indigo-400/60" aria-hidden />
       </FadeIn>
 
-      {/* Timeline + cards */}
       <FadeIn delay={0.08} className="mt-8 md:mt-10">
         <div className="flex gap-5 sm:gap-8 md:gap-10">
-          {/* Timeline rail */}
           <aside
             className="relative flex w-10 shrink-0 flex-col items-center sm:w-12"
             aria-hidden
@@ -52,65 +54,65 @@ export function ExperienceSection() {
             <div className="z-10 flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-border/80 bg-background" />
           </aside>
 
-          {/* Experience cards */}
           <div className="min-w-0 flex-1 space-y-4">
-            {experience.map((item, index) => (
-              <article
-                key={`${item.role}-${index}`}
-                className={cn(
-                  "rounded-2xl border border-border/70 bg-card p-5 shadow-[0_2px_16px_-6px_rgba(0,0,0,0.06)] sm:p-6",
-                  "dark:shadow-[0_2px_16px_-6px_rgba(0,0,0,0.35)]",
-                )}
-              >
-                {/* Title row — tenure badge always inline */}
-                <div className="flex items-start justify-between gap-3">
-                  <div className="min-w-0">
-                    <h3 className="text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-foreground sm:text-lg">
-                      {item.role}
-                    </h3>
-                    {item.company ? (
-                      <p className="mt-0.5 text-[0.8125rem] font-semibold text-indigo-500 dark:text-indigo-400">
-                        {item.company}
-                      </p>
-                    ) : null}
-                  </div>
-                  {item.tenure ? (
+            {experienceMeta.map((item) => {
+              const highlights = t.raw(`items.${item.id}.highlights`) as string[];
+              const tenure = calculateTenure(item.startDate, item.endDate, locale);
+
+              return (
+                <article
+                  key={item.id}
+                  className={cn(
+                    "rounded-2xl border border-border/70 bg-card p-5 shadow-[0_2px_16px_-6px_rgba(0,0,0,0.06)] sm:p-6",
+                    "dark:shadow-[0_2px_16px_-6px_rgba(0,0,0,0.35)]",
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <h3 className="text-[0.9375rem] font-bold leading-snug tracking-[-0.02em] text-foreground sm:text-lg">
+                        {t(`items.${item.id}.role`)}
+                      </h3>
+                      {item.company ? (
+                        <p className="mt-0.5 text-[0.8125rem] font-semibold text-indigo-500 dark:text-indigo-400">
+                          {item.company}
+                        </p>
+                      ) : null}
+                    </div>
                     <span className="mt-0.5 inline-flex shrink-0 rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-semibold text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
-                      {item.tenure}
+                      {tenure}
                     </span>
-                  ) : null}
-                </div>
+                  </div>
 
-                {/* Meta badges */}
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground">
-                    <CalendarDays className="size-3 shrink-0 text-foreground/45" />
-                    {item.period}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground">
-                    <MapPin className="size-3 shrink-0 text-foreground/45" />
-                    {item.location}
-                  </span>
-                </div>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground">
+                      <CalendarDays className="size-3 shrink-0 text-foreground/45" />
+                      {item.period}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-2.5 py-1 text-[11px] text-muted-foreground">
+                      <MapPin className="size-3 shrink-0 text-foreground/45" />
+                      {t(`items.${item.id}.location`)}
+                    </span>
+                  </div>
 
-                <span className="my-4 block h-px w-full bg-border/60" aria-hidden />
+                  <span className="my-4 block h-px w-full bg-border/60" aria-hidden />
 
-                <ul className="space-y-2.5">
-                  {item.highlights.map((highlight) => (
-                    <li
-                      key={highlight}
-                      className="flex gap-2.5 text-[0.8125rem] leading-[1.65] text-muted-foreground"
-                    >
-                      <span
-                        className="mt-[0.5rem] size-1.5 shrink-0 rounded-full bg-indigo-500"
-                        aria-hidden
-                      />
-                      <span className="text-pretty">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+                  <ul className="space-y-2.5">
+                    {highlights.map((highlight) => (
+                      <li
+                        key={highlight}
+                        className="flex gap-2.5 text-[0.8125rem] leading-[1.65] text-muted-foreground"
+                      >
+                        <span
+                          className="mt-[0.5rem] size-1.5 shrink-0 rounded-full bg-indigo-500"
+                          aria-hidden
+                        />
+                        <span className="text-pretty">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
           </div>
         </div>
       </FadeIn>

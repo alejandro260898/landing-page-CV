@@ -1,45 +1,26 @@
 "use client";
 
-import { Cloud, Monitor, Server, Smartphone, Sparkles } from "lucide-react";
+import { Cloud, Monitor, Server, Smartphone } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { FadeIn } from "@/components/shared/fade-in";
 import { TechIcon } from "@/components/shared/tech-icon";
 import { Section } from "@/components/shared/section";
 import { SectionReveal } from "@/components/shared/section-reveal";
-import { stackCategories } from "@/data/stack";
+import { stackCategoryMeta } from "@/data/stack-meta";
 import { formatStackLabel } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-type CategoryMeta = {
-  icon: LucideIcon;
-  description: string;
-};
-
-const categoryMeta: Record<string, CategoryMeta> = {
-  frontend: {
-    icon: Monitor,
-    description: "Construyo interfaces modernas, rápidas y accesibles.",
-  },
-  mobile: {
-    icon: Smartphone,
-    description: "Desarrollo aplicaciones móviles multiplataforma y nativas.",
-  },
-  backend: {
-    icon: Server,
-    description: "APIs robustas, seguras y escalables.",
-  },
-  infra: {
-    icon: Cloud,
-    description: "Despliegue, contenedores y servicios en la nube.",
-  },
-  ai: {
-    icon: Sparkles,
-    description:
-      "Utilizo herramientas asistidas por IA para optimizar desarrollo y documentación técnica.",
-  },
+const categoryIcons: Record<string, LucideIcon> = {
+  frontend: Monitor,
+  mobile: Smartphone,
+  backend: Server,
+  infra: Cloud,
 };
 
 export function StackSection() {
+  const t = useTranslations("Stack");
+
   return (
     <Section
       id="stack"
@@ -49,22 +30,20 @@ export function StackSection() {
       <SectionReveal>
       <FadeIn>
         <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-indigo-500 dark:text-indigo-400">
-          Tecnologías
+          {t("eyebrow")}
         </p>
         <h2 className="text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-foreground sm:text-3xl md:text-[2.05rem]">
-          Mi stack tecnológico
+          {t("title")}
         </h2>
         <p className="mt-3 max-w-3xl text-pretty text-[0.9375rem] leading-[1.75] text-muted-foreground md:text-base md:leading-[1.72]">
-          Conjunto de herramientas y tecnologías que utilizo para desarrollar
-          productos escalables, modernos y eficientes.
+          {t("intro")}
         </p>
         <span className="mt-5 block h-px w-10 bg-indigo-400/60" aria-hidden />
       </FadeIn>
 
       <div className="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
-        {stackCategories.map((category, index) => {
-          const meta = categoryMeta[category.id];
-          const Icon = meta?.icon ?? Monitor;
+        {stackCategoryMeta.map((category, index) => {
+          const Icon = categoryIcons[category.id] ?? Monitor;
           const techCount = category.technologies.length;
           const useTwoCols = techCount > 1;
 
@@ -87,13 +66,11 @@ export function StackSection() {
                 </span>
 
                 <p className="text-[0.9375rem] font-semibold tracking-[-0.01em] text-foreground">
-                  {category.title}
+                  {t(`categories.${category.id}.title`)}
                 </p>
-                {meta?.description && (
-                  <p className="mt-1 text-pretty text-[0.8125rem] leading-[1.65] text-muted-foreground">
-                    {meta.description}
-                  </p>
-                )}
+                <p className="mt-1 text-pretty text-[0.8125rem] leading-[1.65] text-muted-foreground">
+                  {t(`categories.${category.id}.description`)}
+                </p>
 
                 <span className="my-4 block h-px w-full bg-border/70" aria-hidden />
 
@@ -135,7 +112,7 @@ export function StackSection() {
                   })}
                 </ul>
 
-                <p className="sr-only">{formatStackLabel(category.technologies)}</p>
+                <p className="sr-only">{formatStackLabel([...category.technologies])}</p>
               </article>
             </FadeIn>
           );

@@ -2,6 +2,8 @@ import type { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 import dockerSvg from "@/img/Docker.svg";
 import flutterSvg from "@/img/Flutter.svg";
+import gitSvg from "@/img/Git.svg";
+import githubSvg from "@/img/GitHub.svg";
 import kubernetesSvg from "@/img/Kubernetes.svg";
 import mysqlSvg from "@/img/MySQL.svg";
 import postgresSvg from "@/img/PostgresSQL.svg";
@@ -27,6 +29,8 @@ function createBrandIcon(src: StaticImageData) {
 
 export const FlutterBrandIcon = createBrandIcon(flutterSvg);
 export const DockerBrandIcon = createBrandIcon(dockerSvg);
+export const GitBrandIcon = createBrandIcon(gitSvg);
+export const GitHubBrandIcon = createBrandIcon(githubSvg);
 export const KubernetesBrandIcon = createBrandIcon(kubernetesSvg);
 export const TypeScriptBrandIcon = createBrandIcon(typescriptSvg);
 export const PostgreSQLBrandIcon = createBrandIcon(postgresSvg);

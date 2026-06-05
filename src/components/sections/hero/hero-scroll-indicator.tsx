@@ -2,6 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { easePremium } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ type HeroScrollIndicatorProps = {
 
 export function HeroScrollIndicator({ className }: HeroScrollIndicatorProps) {
   const reduceMotion = useReducedMotion();
+  const t = useTranslations("Common");
 
   return (
     <motion.div
@@ -31,7 +33,7 @@ export function HeroScrollIndicator({ className }: HeroScrollIndicatorProps) {
           "text-foreground/55 transition-colors duration-300",
           "hover:text-foreground/80",
         )}
-        aria-label="Ir a la sección Sobre mí"
+        aria-label={t("scrollToAbout")}
       >
         <span
           className={cn(
