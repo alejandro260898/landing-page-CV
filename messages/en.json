@@ -116,16 +116,16 @@
         "role": "Full Stack Developer",
         "location": "Remote",
         "highlights": [
-          "Built a REST API for biometric registration and access using FastAPI and DeepFace, incorporating facial accessory detection such as glasses, caps, and face masks to improve recognition accuracy.",
-          "Developed REST APIs with Laravel for payment processing, invoice stamping, and database management.",
+          "Built a REST API for biometric registration and access using FastAPI and DeepFace, incorporating facial accessory detection such as glasses, caps, and face masks, reducing recognition error rate by 15%.",
+          "Developed REST APIs with Laravel for payment processing, invoice stamping, and database management, operating as reusable microservices shared across 5 applications, eliminating module duplication and reducing development time.",
           "Integrated relational and non-relational databases such as MySQL, PostgreSQL, and MongoDB into web and mobile applications.",
-          "Contributed to the design, planning, and development of more than 8 custom enterprise projects using React, Next.js, Flutter, and Laravel.",
-          "Designed UI/UX interfaces to improve user experience across multiple projects.",
-          "Integrated custom client-designed sports watches via BLE into a mobile application.",
-          "Optimized development workflows using AI-assisted tools for debugging and technical documentation.",
+          "Contributed to the design, planning, and development of more than 8 custom enterprise projects in production using React, Next.js, Flutter, and Laravel.",
+          "Designed UI/UX interfaces on 4 projects, improving user experience in enterprise web and mobile applications.",
+          "Integrated up to 4 custom client-designed sports watches simultaneously via BLE in a Flutter mobile application.",
+          "Optimized development workflows using AI-assisted tools for debugging, development, and technical documentation, increasing delivery capacity by managing two projects simultaneously.",
           "Managed deployment, configuration, error monitoring, and updates for 4 mobile applications on Google Play Store and App Store.",
-          "Deployed web applications across different environments using Vercel, SSH, and FTP.",
-          "Dockerized 2 REST APIs and managed deployment of their images via SSH and Kubernetes on DigitalOcean."
+          "Deployed more than 5 web applications across different environments using Vercel, SSH, and FTP.",
+          "Dockerized 2 REST APIs and managed deployment of their images on Kubernetes with DigitalOcean, configuring autoscaling from 1 to 3 nodes based on production demand."
         ]
       }
     }

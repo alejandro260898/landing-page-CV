@@ -116,16 +116,16 @@
         "role": "Developer Full Stack",
         "location": "Remoto",
         "highlights": [
-          "Desarrollé una API REST para registro y acceso biométrico utilizando FastAPI y DeepFace, incorporando detección de accesorios faciales como lentes, gorras y cubrebocas para mejorar la precisión del reconocimiento.",
-          "Desarrollé APIs REST con Laravel orientadas al procesamiento de pagos, timbrado de facturas y gestión de bases de datos.",
+          "Desarrollé una API REST para registro y acceso biométrico utilizando FastAPI y DeepFace, incorporando detección de accesorios faciales como lentes, gorras y cubrebocas, logrando reducir la tasa de errores de reconocimiento en un 15%.",
+          "Desarrollé APIs REST con Laravel orientadas al procesamiento de pagos, timbrado de facturas y gestión de bases de datos, funcionando como microservicios reutilizables compartidos entre 5 aplicaciones, eliminando la duplicación de módulos y reduciendo tiempos de desarrollo.",
           "Integré bases de datos relacionales y no relacionales como MySQL, PostgreSQL y MongoDB en aplicaciones web y móviles.",
-          "Participé en el diseño, planeación y desarrollo de más de 8 proyectos empresariales personalizados utilizando React, Next.js, Flutter y Laravel.",
-          "Diseñé interfaces UI/UX para mejorar la experiencia de usuario en múltiples proyectos.",
-          "Integré vía BLE relojes deportivos de diseño propio y personalizado para el cliente a una aplicación móvil.",
-          "Optimicé flujos de desarrollo mediante herramientas asistidas por IA aplicadas al debugging y documentación técnica.",
+          "Participé en el diseño, planeación y desarrollo de más de 8 proyectos empresariales personalizados en producción utilizando React, Next.js, Flutter y Laravel.",
+          "Diseñé interfaces UI/UX en 4 proyectos, mejorando la experiencia de usuario en aplicaciones web y móviles de uso empresarial.",
+          "Integré vía BLE hasta 4 relojes deportivos simultáneos de diseño propio y personalizado para el cliente en una aplicación móvil Flutter.",
+          "Optimicé flujos de desarrollo mediante herramientas asistidas por IA para debugging, desarrollo y documentación técnica, incrementando mi capacidad de entrega al gestionar dos proyectos simultáneamente.",
           "Gestioné el despliegue, configuración, monitoreo de errores y actualización de 4 aplicaciones móviles en Google Play Store y App Store.",
-          "Desplegué aplicaciones web en distintos entornos utilizando Vercel, SSH y FTP.",
-          "Dockericé 2 APIs REST y gestioné el despliegue de sus imágenes mediante SSH y Kubernetes en DigitalOcean."
+          "Desplegué más de 5 aplicaciones web en distintos entornos utilizando Vercel, SSH y FTP.",
+          "Dockericé 2 APIs REST y gestioné el despliegue de sus imágenes en Kubernetes con DigitalOcean, configurando autoescalado de 1 a 3 nodos según demanda en producción."
         ]
       }
     }
