@@ -5,34 +5,13 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { useIsClient } from "@/hooks/use-is-client";
-import { profile } from "@/data/profile";
+import { printCv, type CvFormat } from "@/lib/print-cv";
 import { cn } from "@/lib/utils";
-
-type CvFormat = "normal" | "ats";
 
 type CvModalProps = {
   open: boolean;
   onClose: () => void;
 };
-
-function usePrintCv() {
-  const print = (format: CvFormat) => {
-    const prevTitle = document.title;
-    document.title = profile.displayName;
-
-    document.body.dataset.cvMode = format;
-
-    const restoreTitle = () => {
-      document.title = prevTitle;
-      delete document.body.dataset.cvMode;
-    };
-
-    window.addEventListener("afterprint", restoreTitle, { once: true });
-    window.print();
-  };
-
-  return print;
-}
 
 type OptionCardProps = {
   icon: React.ReactNode;
@@ -93,7 +72,6 @@ function OptionCard({
 
 export function CvModal({ open, onClose }: CvModalProps) {
   const t = useTranslations("Cv");
-  const print = usePrintCv();
   const backdropRef = useRef<HTMLDivElement>(null);
   const mounted = useIsClient();
 
@@ -118,7 +96,7 @@ export function CvModal({ open, onClose }: CvModalProps) {
 
   const handleDownload = (format: CvFormat) => {
     onClose();
-    setTimeout(() => print(format), 120);
+    setTimeout(() => printCv(format), 200);
   };
 
   const modal = (

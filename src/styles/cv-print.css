@@ -642,16 +642,43 @@
     visibility: hidden !important;
   }
 
-  /* Por defecto ocultar ambos CVs */
+  /* Por defecto ocultar ambos CVs al imprimir */
   #cv-print,
   #cv-print-ats {
     display: none !important;
+    visibility: hidden !important;
   }
 
-  /* Mostrar solo el seleccionado según data-cv-mode del body */
+  /* Clases en body — más fiables que data-attributes en móvil */
+  body.cv-print-normal #cv-print {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  body.cv-print-normal #cv-print-ats {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  body.cv-print-ats #cv-print-ats {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  body.cv-print-ats #cv-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Respaldo con data-attribute (escritorio) */
   body[data-cv-mode="normal"] #cv-print {
     display: block !important;
     visibility: visible !important;
+  }
+
+  body[data-cv-mode="normal"] #cv-print-ats {
+    display: none !important;
+    visibility: hidden !important;
   }
 
   body[data-cv-mode="ats"] #cv-print-ats {
@@ -659,10 +686,9 @@
     visibility: visible !important;
   }
 
-  /* Fallback: si no hay data-cv-mode muestra el normal */
-  body:not([data-cv-mode]) #cv-print {
-    display: block !important;
-    visibility: visible !important;
+  body[data-cv-mode="ats"] #cv-print {
+    display: none !important;
+    visibility: hidden !important;
   }
 
   #cv-print {
