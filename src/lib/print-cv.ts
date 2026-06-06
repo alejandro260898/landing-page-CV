@@ -2,53 +2,59 @@ import { profile } from "@/data/profile";
 
 export type CvFormat = "normal" | "ats";
 
-function applyPrintVisibility(format: CvFormat) {
-  const normal = document.getElementById("cv-print");
-  const ats = document.getElementById("cv-print-ats");
-  if (!normal || !ats) return;
-
-  const show = format === "normal" ? normal : ats;
-  const hide = format === "normal" ? ats : normal;
-
+export function applyPrintMode(format: CvFormat) {
   document.body.classList.remove("cv-print-normal", "cv-print-ats");
   document.body.classList.add(format === "normal" ? "cv-print-normal" : "cv-print-ats");
   document.body.dataset.cvMode = format;
-
-  show.style.setProperty("display", "block", "important");
-  show.style.setProperty("visibility", "visible", "important");
-  hide.style.setProperty("display", "none", "important");
-  hide.style.setProperty("visibility", "hidden", "important");
 }
 
-function clearPrintVisibility() {
-  const normal = document.getElementById("cv-print");
-  const ats = document.getElementById("cv-print-ats");
-
+export function clearPrintMode() {
   document.body.classList.remove("cv-print-normal", "cv-print-ats");
   delete document.body.dataset.cvMode;
-
-  for (const el of [normal, ats]) {
-    if (!el) continue;
-    el.style.removeProperty("display");
-    el.style.removeProperty("visibility");
-  }
 }
 
 /** Abre el diálogo de impresión con el CV seleccionado. */
 export function printCv(format: CvFormat) {
   const previousTitle = document.title;
   document.title = profile.displayName;
+  applyPrintMode(format);
 
-  applyPrintVisibility(format);
+  let cleaned = false;
+  let printEngaged = false;
+  let engagedAt = 0;
 
   const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
     document.title = previousTitle;
-    clearPrintVisibility();
+    clearPrintMode();
   };
 
-  window.addEventListener("afterprint", cleanup, { once: true });
+  const mediaQuery = window.matchMedia("print");
 
-  // Doble rAF: en móvil los estilos deben aplicarse antes del snapshot de impresión
+  const onPrintChange = (event: MediaQueryListEvent) => {
+    if (event.matches) {
+      printEngaged = true;
+      engagedAt = Date.now();
+      return;
+    }
+
+    if (!printEngaged) return;
+
+    // Android a veces dispara matches=false al abrir el diálogo
+    if (Date.now() - engagedAt < 1500) return;
+
+    mediaQuery.removeEventListener("change", onPrintChange);
+    setTimeout(cleanup, 400);
+  };
+
+  mediaQuery.addEventListener("change", onPrintChange);
+
+  window.setTimeout(() => {
+    mediaQuery.removeEventListener("change", onPrintChange);
+    cleanup();
+  }, 120_000);
+
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       window.print();

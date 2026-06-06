@@ -642,51 +642,39 @@
     visibility: hidden !important;
   }
 
-  /* Por defecto ocultar ambos CVs al imprimir */
-  #cv-print,
+  /* Por defecto: CV profesional visible (evita hoja en blanco en móvil) */
+  #cv-print {
+    display: block !important;
+    visibility: visible !important;
+  }
+
   #cv-print-ats {
     display: none !important;
     visibility: hidden !important;
   }
 
-  /* Clases en body — más fiables que data-attributes en móvil */
-  body.cv-print-normal #cv-print {
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  body.cv-print-normal #cv-print-ats {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  body.cv-print-ats #cv-print-ats {
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  body.cv-print-ats #cv-print {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  /* Respaldo con data-attribute (escritorio) */
-  body[data-cv-mode="normal"] #cv-print {
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  body[data-cv-mode="normal"] #cv-print-ats {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
+  /* Modo ATS desde el modal */
+  body.cv-print-ats #cv-print-ats,
   body[data-cv-mode="ats"] #cv-print-ats {
     display: block !important;
     visibility: visible !important;
   }
 
+  body.cv-print-ats #cv-print,
   body[data-cv-mode="ats"] #cv-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Modo profesional explícito (desde el modal) */
+  body.cv-print-normal #cv-print,
+  body[data-cv-mode="normal"] #cv-print {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  body.cv-print-normal #cv-print-ats,
+  body[data-cv-mode="normal"] #cv-print-ats {
     display: none !important;
     visibility: hidden !important;
   }

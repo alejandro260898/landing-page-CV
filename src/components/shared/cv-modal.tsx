@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { useIsClient } from "@/hooks/use-is-client";
-import { printCv, type CvFormat } from "@/lib/print-cv";
+import { applyPrintMode, printCv, type CvFormat } from "@/lib/print-cv";
 import { cn } from "@/lib/utils";
 
 type CvModalProps = {
@@ -95,8 +95,9 @@ export function CvModal({ open, onClose }: CvModalProps) {
   if (!mounted) return null;
 
   const handleDownload = (format: CvFormat) => {
+    applyPrintMode(format);
     onClose();
-    setTimeout(() => printCv(format), 200);
+    setTimeout(() => printCv(format), 250);
   };
 
   const modal = (
