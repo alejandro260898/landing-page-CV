@@ -112,6 +112,15 @@
     "title": "Experiencia profesional",
     "intro": "Mi recorrido profesional y los proyectos que han marcado mi crecimiento.",
     "items": {
+      "sistemacng": {
+        "role": "Desarrollador Junior",
+        "location": "Presencial",
+        "highlights": [
+          "Desarrollo y mantenimiento de proyectos empresariales con Laravel, Angular y Kotlin.",
+          "Colaboración en el ciclo de desarrollo de aplicaciones web y móviles del ecosistema de la empresa.",
+          "Participación en la implementación de funcionalidades, correcciones y mejoras en entornos de producción."
+        ]
+      },
       "eurekasigma": {
         "role": "Developer Full Stack",
         "location": "Remoto",

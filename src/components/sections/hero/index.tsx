@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Wifi } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Logo } from "@/components/shared/logo";
@@ -110,11 +110,6 @@ export function Hero() {
             <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-2.5 py-1.5 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
               <MapPin className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
               {profile.location}
-            </span>
-            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border/60 bg-background/60 px-2.5 py-1.5 text-[10px] font-medium whitespace-nowrap text-muted-foreground backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs">
-              <Wifi className="size-3 shrink-0 text-foreground/45 sm:size-3.5" />
-              <span className="sm:hidden">{t("availabilityShort")}</span>
-              <span className="hidden sm:inline">{t("availability")}</span>
             </span>
           </motion.div>
 

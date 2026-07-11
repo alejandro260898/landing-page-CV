@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { PrintCv } from "@/components/cv/print-cv";
 import { PrintCvAts } from "@/components/cv/print-cv-ats";
+import { PrintRecommendation } from "@/components/cv/print-recommendation";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { AboutSection } from "@/components/sections/about-section";
@@ -41,6 +42,7 @@ export default async function HomePage({ params }: Props) {
       </div>
       <PrintCv />
       <PrintCvAts />
+      <PrintRecommendation />
     </>
   );
 }

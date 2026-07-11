@@ -1,19 +1,27 @@
 import { profile } from "@/data/profile";
 
-export type CvFormat = "normal" | "ats";
+export type CvFormat = "normal" | "ats" | "rec";
+
+const FORMAT_CLASS: Record<CvFormat, string> = {
+  normal: "cv-print-normal",
+  ats: "cv-print-ats",
+  rec: "cv-print-rec",
+};
+
+const ALL_FORMAT_CLASSES = Object.values(FORMAT_CLASS);
 
 export function applyPrintMode(format: CvFormat) {
-  document.body.classList.remove("cv-print-normal", "cv-print-ats");
-  document.body.classList.add(format === "normal" ? "cv-print-normal" : "cv-print-ats");
+  document.body.classList.remove(...ALL_FORMAT_CLASSES);
+  document.body.classList.add(FORMAT_CLASS[format]);
   document.body.dataset.cvMode = format;
 }
 
 export function clearPrintMode() {
-  document.body.classList.remove("cv-print-normal", "cv-print-ats");
+  document.body.classList.remove(...ALL_FORMAT_CLASSES);
   delete document.body.dataset.cvMode;
 }
 
-/** Abre el diálogo de impresión con el CV seleccionado. */
+/** Abre el diálogo de impresión con el documento seleccionado. */
 export function printCv(format: CvFormat) {
   const previousTitle = document.title;
   document.title = profile.displayName;

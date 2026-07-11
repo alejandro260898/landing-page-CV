@@ -2,11 +2,11 @@
 export const stackCategoryMeta = [
   {
     id: "frontend",
-    technologies: ["React", "Next.js", "TypeScript", "TailwindCSS"],
+    technologies: ["React", "Next.js", "Angular", "TypeScript", "TailwindCSS"],
   },
   {
     id: "mobile",
-    technologies: ["Flutter", "Dart", "Capacitor", "PWAs", "BLE"],
+    technologies: ["Flutter", "Dart", "Kotlin", "Capacitor", "PWAs", "BLE"],
   },
   {
     id: "backend",

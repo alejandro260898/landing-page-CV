@@ -1,7 +1,7 @@
 /* CV print — layout dos columnas (tamaño Carta / Letter) */
 
 .print-only {
-  display: none;
+  display: none !important;
 }
 
 :root {
@@ -653,7 +653,7 @@
     visibility: hidden !important;
   }
 
-  /* Modo ATS desde el modal */
+  /* Modo ATS */
   body.cv-print-ats #cv-print-ats,
   body[data-cv-mode="ats"] #cv-print-ats {
     display: block !important;
@@ -666,7 +666,7 @@
     visibility: hidden !important;
   }
 
-  /* Modo profesional explícito (desde el modal) */
+  /* Modo profesional explícito */
   body.cv-print-normal #cv-print,
   body[data-cv-mode="normal"] #cv-print {
     display: block !important;
@@ -675,6 +675,15 @@
 
   body.cv-print-normal #cv-print-ats,
   body[data-cv-mode="normal"] #cv-print-ats {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Modo carta de recomendación — oculta ambos CVs */
+  body.cv-print-rec #cv-print,
+  body.cv-print-rec #cv-print-ats,
+  body[data-cv-mode="rec"] #cv-print,
+  body[data-cv-mode="rec"] #cv-print-ats {
     display: none !important;
     visibility: hidden !important;
   }
@@ -739,5 +748,191 @@
   .cv-sidebar a[href]:after {
     content: none !important;
   }
+
+  /* ── Carta de recomendación: control selectivo ── */
+  #cv-rec {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  body.cv-print-rec #cv-rec,
+  body[data-cv-mode="rec"] #cv-rec {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  /* Ocultar los CVs cuando se imprime la carta */
+  body.cv-print-rec #cv-print,
+  body.cv-print-rec #cv-print-ats,
+  body[data-cv-mode="rec"] #cv-print,
+  body[data-cv-mode="rec"] #cv-print-ats {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  #cv-rec {
+    position: static !important;
+    width: var(--cv-page-width) !important;
+    max-width: var(--cv-page-width) !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+  }
 }
 
+/* ══════════════════════════════════════
+   Carta de recomendación — EurekaSigma
+   ══════════════════════════════════════ */
+
+.rec-document {
+  box-sizing: border-box;
+  width: var(--cv-page-width);
+  max-width: var(--cv-page-width);
+  min-height: var(--cv-page-height);
+  background: #ffffff;
+  flex-direction: column;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: 9.5pt;
+  line-height: 1.6;
+  color: #0b1220;
+  margin: 0 auto;
+}
+
+/* ── Encabezado ── */
+.rec-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8mm 12mm 4mm 12mm;
+  gap: 2.5mm;
+  min-height: 16mm;
+}
+
+.rec-header-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rec-logo {
+  display: block;
+  height: 12mm;
+  width: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.rec-header-line {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  align-self: center;
+}
+
+.rec-tech-line {
+  display: block;
+  width: 100%;
+  height: 9mm;
+}
+
+.rec-dot-pattern {
+  position: absolute;
+  top: 5mm;
+  right: 12mm;
+  width: 22mm;
+  height: auto;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Regla bajo encabezado ── */
+.rec-header-rule {
+  height: 0.5pt;
+  background: #e5e7eb;
+  margin: 0 12mm;
+}
+
+/* ── Cuerpo ── */
+.rec-body {
+  flex: 1;
+  padding: 8mm 16mm 6mm 16mm;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rec-date {
+  font-size: 8.75pt;
+  color: #4b5563;
+  margin: 0 0 8mm 0;
+  padding: 0;
+}
+
+.rec-addressee {
+  margin-bottom: 5mm;
+}
+
+.rec-addressee-label {
+  font-size: 9pt;
+  font-weight: 600;
+  color: #0b1220;
+  margin: 0;
+  padding: 0;
+}
+
+.rec-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+
+.rec-content p {
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  font-size: 9.5pt;
+  color: #1f2937;
+}
+
+.rec-content strong {
+  font-weight: 700;
+  color: #0b1220;
+}
+
+.rec-sign-off {
+  margin-top: 6mm !important;
+}
+
+.rec-signature {
+  margin-top: 25mm;
+  padding-top: 3mm;
+  border-top: 0.5pt solid #e5e7eb;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5mm;
+}
+
+.rec-signer-name {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #0b1220;
+  margin: 0;
+  padding: 0;
+}
+
+.rec-signer-role {
+  font-size: 8.25pt;
+  color: #2563eb;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.rec-signer-detail {
+  font-size: 8.25pt;
+  color: #4b5563;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}

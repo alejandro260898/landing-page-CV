@@ -97,6 +97,27 @@ const LaravelIcon = ({ className }: Props) => (
   </svg>
 );
 
+const AngularIcon = ({ className }: Props) => (
+  <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
+    <path d="M12 1.5 2.25 5.1l1.5 13.2L12 22.5l8.25-4.2 1.5-13.2L12 1.5z" fill="#DD0031" />
+    <path d="M12 1.5v21l8.25-4.2 1.5-13.2L12 1.5z" fill="#C3002F" />
+    <path d="m12 5.4 4.8 11.4h-1.95l-1.05-2.7H9.2l-1.05 2.7H6.2L12 5.4zm-1.35 6.9h2.7L12 8.7l-1.35 3.6z" fill="#fff" />
+  </svg>
+);
+
+const KotlinIcon = ({ className }: Props) => (
+  <svg viewBox="0 0 24 24" className={cn("shrink-0", className)} aria-hidden>
+    <defs>
+      <linearGradient id="kotlinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#E44857" />
+        <stop offset="50%" stopColor="#C711E1" />
+        <stop offset="100%" stopColor="#7F52FF" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#kotlinGrad)" d="M1.5 1.5h21L12 12.75 22.5 22.5H1.5V1.5z" />
+  </svg>
+);
+
 const RestApiIcon = ({ className }: Props) => (
   <svg viewBox="0 0 24 24" fill="none" className={cn("shrink-0", className)} aria-hidden>
     <rect x="2" y="8" width="20" height="8" rx="2" stroke="#6366F1" strokeWidth="1.6" />
@@ -167,10 +188,12 @@ const DocIcon = ({ className }: Props) => (
 const iconMap: Record<string, React.ComponentType<Props>> = {
   React: ReactIcon,
   "Next.js": NextJsIcon,
+  Angular: AngularIcon,
   TypeScript: TypeScriptBrandIcon,
   TailwindCSS: TailwindIcon,
   Flutter: FlutterBrandIcon,
   Dart: DartIcon,
+  Kotlin: KotlinIcon,
   Capacitor: CapacitorIcon,
   PWAs: PWAIcon,
   BLE: BLEIcon,

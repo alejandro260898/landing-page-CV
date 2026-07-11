@@ -112,6 +112,15 @@
     "title": "Professional experience",
     "intro": "My professional journey and the projects that have shaped my growth.",
     "items": {
+      "sistemacng": {
+        "role": "Junior Developer",
+        "location": "On-site",
+        "highlights": [
+          "Developing and maintaining enterprise projects with Laravel, Angular, and Kotlin.",
+          "Collaborating across the development cycle of the company's web and mobile applications.",
+          "Contributing to feature implementation, bug fixes, and improvements in production environments."
+        ]
+      },
       "eurekasigma": {
         "role": "Full Stack Developer",
         "location": "Remote",
